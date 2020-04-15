@@ -1,7 +1,7 @@
 
 # Installation :
-Download intempt.framework from https://github.com/intempt/intempt-objc-swift-sdk/tree/master/intempt.framework.
- Drag & Drop intempt.Framework in your iOS Project.
+Download intempt.framework from https://github.com/intempt/intempt-objc-swift-sdk.
+ Then Drag & Drop intempt.Framework in your iOS Project.
 
 ## Requirements
 - Minimum iOS 12.0+
