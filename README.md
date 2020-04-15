@@ -1,5 +1,4 @@
 
-# Intempt iOS SDK Tracker
 # Installation :
 At first Download intempt.framework from https://github.com/intempt/iOS-Tracker-sdk).
 Then Drag & Drop intempt.Framework in your iOS Project.
@@ -7,7 +6,7 @@ Then Drag & Drop intempt.Framework in your iOS Project.
 ## Requirements
 - Minimum iOS 12.0+
 - Minimum Xcode 10.0
-# Swift Language :
+# Swift :
 If Xcode 11.3 or above
 go to SceneDelegate.swift File
 ``` swift
@@ -27,7 +26,7 @@ import intempt
        Intempt.tracking(withOrgId: "playground", andSourceId: "76765820017905664", andToken: "g2t2epJv/Ge/bcxLnsRZRVBjORiaEdA/.CzKQ2qSvrjASvv80xD2uD2CYrzzYh94FwrWh3qpVi+UQhzGmnr/4rR+Nm8GfHR0t")
 }
 ```
-# Objective C Language :
+# Objective C :
 If Xcode 11.3 or above
 go to SceneDelegate.m File
 ``` swift
