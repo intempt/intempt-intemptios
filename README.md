@@ -1,12 +1,11 @@
 
 # Intempt iOS SDK Tracker
 # Installation :
-At first Download code from https://github.com/intempt/ios-sdk.git).
-Then   Open the Folder iOSTracker SDK/ intempt.
-Click  intempt.xcodeproj,then  Drag & Drop intempt.Framework in your iOS App.
+At first Download intempt.framework from https://github.com/intempt/iOS-Tracker-sdk).
+Then Drag & Drop intempt.Framework in your iOS Project.
 
 ## Requirements
-- iOS 12.0+
+- Minimum iOS 12.0+
 - Minimum Xcode 10.0
 # Swift Language :
 If Xcode 11.3 or above
@@ -51,7 +50,7 @@ Goto ViewController.m File
 ```
 # Open Project-->General-> Frameworks,Libraries, and Embedded Content 
 # Intempt.framework must set to  Embed & Sign
-|<img src="https://github.com/intempt/ios-sdk/blob/custoEvent/screenshots/1.png" width="1200">|
+|<img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/1.png" width="1200">|
 
 # Next go to app's  Info.Plist file and add the privacy key.
 
@@ -96,17 +95,17 @@ example :
 ``` 
 # DemoTracking App
 ## Add the framework in the application. once it launches, it will show the following pop up. click on "Allow While Using App". Thus you are enabling the keys to track your location details.
-<img src="https://github.com/intempt/ios-sdk/blob/custoEvent/screenshots/2.png" width=“50>
+<img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/2.png" width=“50>
 
 ## In the following demo application, after running it will display a Login Screen. On clicking the login button it fires the IdentifyVisitor function .
-<img src="https://github.com/intempt/ios-sdk/blob/custoEvent/screenshots/3.png" width=“50>
+<img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/3.png" width=“50>
 
 ##  Here on every touch event the tracker will fetch event details.
-<img src="https://github.com/intempt/ios-sdk/blob/custoEvent/screenshots/4.png" width=“50>
+<img src=https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/4.png" width=“50>
 
 
 ## On clicking payment button , purchase custom event will be fired in this project 
-<img src="https://github.com/intempt/ios-sdk/blob/custoEvent/screenshots/5.png" width=“50>
+<img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/5.png" width=“50>
 
 
 
