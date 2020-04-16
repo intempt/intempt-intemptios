@@ -1,4 +1,27 @@
+## Intempt - JavaScript SDK
 
+[Intempt](https://intempt.com/?utm_campaign=sdk&utm_medium=docs&utm_source=github) is an API-first platform for developers and marketers who are dissatisfied with high-maintenance personalizaton software. Our product is a personalization infrastructure through API and easy-to-use Console that provides a quicker way to build personalized applications. Unlike legacy personalization software we have:
+
+* an API-first SaaS platform that enables personliazation of both digital and physical human activity
+* a management console that helps cut down maintenance and reporting overhead
+* an infrastructure to scale up user activity in no time
+
+This is a library to facilitate tracking of anonymous and logeed in user traffic on your website.
+
+You can find the full API documentation on [dev.intempt.com](https://dev.intempt.com).
+
+Contents:
+
+* [1](https://github.com/intempt/intempt-intemptjs#install-and-initialize-script) - Installation and Initialization [install](https://dev.intempt.com/#customization-for-web)
+* [2](https://github.com/intempt/intempt-intemptjs#identifying-visitors) - How to identify a user [identify](https://dev.intempt.com/#customization-for-web)
+* [3](https://github.com/intempt/intempt-intemptjs#tracking-categories-and-products) - How to track products and category browsing [product and category](https://dev.intempt.com/#customization-for-web)
+* [4](https://github.com/intempt/intempt-intemptjs#recording-custom-events) - How to record a custom event [custom event](https://dev.intempt.com/#customization-for-web)
+* [5](https://github.com/intempt/intempt-intemptjs#tracking-revenue-with-trackcharge) - How to track revenue [track charge](https://dev.intempt.com/#customization-for-web)
+* [6](https://github.com/intempt/intempt-intemptjs#events-collections-and-properties) - Events, Collections & Properties [event collection properties](https://dev.intempt.com/#events-collections-and-properties)
+* [7](https://github.com/intempt/intempt-intemptjs#tracker-events) - Event primer [event](https://dev.intempt.com/#customization-for-web)
+* [8](https://github.com/intempt/intempt-intemptjs#event-properties) - Properties primer [property](https://dev.intempt.com/#properties)
+
+### Usage
 # Installation :
 Download intempt.framework from https://github.com/intempt/intempt-objc-swift-sdk.
  Then Drag & Drop intempt.Framework in your iOS Project.
