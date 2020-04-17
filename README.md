@@ -119,6 +119,23 @@ example :
         }
     ]
 ``` 
+
+### Tracking Revenue with trackcharge
+
+Notice the key intempt.visit.trackcharge in the sample code above. If you use this key in the event details, the value will be recorded as revenue in the Intempt app. This allows you to assess the revenue impact of campaigns.
+
+Collections do not need to be predefined in the Intempt app. As soon as the tracker logs an event with a new collection name, that collection of events will be available in the app.
+
+Events, Collections, and Properties
+An event is a discrete interaction that occurs on your site. Events are organized by type into collections. Events have properties, key-value pairs that record relevant information about the event.
+
+For example, a user clicks on a link. The click is an event. It belongs to the interactions collection. (The interaction type is “click”.)
+
+The properties of the event include the time of the click, the id and other HTML attributes of the element that was clicked, the URL of the page on which the click happened, and so forth.
+
+The tracker code, once installed on a website, will automatically record many events that occur on the site.
+
+
 ### DemoTracking App
 Add the framework in the application. once it launches, it will show the following pop up. click on "Allow While Using App". Thus you are enabling the keys to track your location details.
 <img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/2.png" width=“50>
