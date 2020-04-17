@@ -141,15 +141,12 @@ The tracker code, once installed on a website, will automatically record many ev
 
 
 ### Demo iOS App
-Add the framework in the application. once it launches, it will show the following pop up. click on "Allow While Using App". Thus you are enabling the keys to track your location details.
-<img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/2.png" width=“50>
+1. Add the framework in the application. once it launches, it will show the following pop up. click on "Allow While Using App". 
 
-In the following demo application, after running it will display a Login Screen. On clicking the login button it fires the IdentifyVisitor function .
-<img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/3.png" width=“50>
+2. Thus you are enabling the keys to track your location details.
 
-Here on every touch event the tracker will fetch event details.
-<img src=https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/4.png" width=“50>
+3. In the following demo application, after running it will display a Login Screen. On clicking the login button it fires the IdentifyVisitor function.
 
+4. Here on every touch event the tracker will fetch event details.
 
-On clicking payment button , purchase custom event will be fired in this project 
-<img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/5.png" width=“50>
+5. On clicking payment button , purchase custom event will be fired in this project.
