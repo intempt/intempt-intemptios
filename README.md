@@ -6,19 +6,21 @@
 * a management console that helps cut down maintenance and reporting overhead
 * an infrastructure to scale up user activity in no time
 
-This is a library to facilitate tracking of anonymous and logeed in user traffic on your website.
+This is a library to facilitate automatic tracking of anonymous and logeed in traffic on your objective-c or swift app.
 
 You can find the full API documentation on [dev.intempt.com](https://dev.intempt.com).
 
 Contents:
 
-* [1](https://github.com/intempt/intempt-intemptjs#install-and-initialize-script) - Installation and Initialization [install](https://dev.intempt.com/#customization-for-web)
-* [2](https://github.com/intempt/intempt-intemptjs#identifying-visitors) - How to identify a user [identify](https://dev.intempt.com/#customization-for-web)
-* [3](https://github.com/intempt/intempt-intemptjs#recording-custom-events) - How to record a custom event [custom event](https://dev.intempt.com/#customization-for-web)
-* [4](https://github.com/intempt/intempt-intemptjs#tracking-revenue-with-trackcharge) - How to track revenue [track charge](https://dev.intempt.com/#customization-for-web)
-* [5](https://github.com/intempt/intempt-intemptjs#events-collections-and-properties) - Events, Collections & Properties [event collection properties](https://dev.intempt.com/#events-collections-and-properties)
-* [6](https://github.com/intempt/intempt-intemptjs#tracker-events) - Event primer [event](https://dev.intempt.com/#customization-for-web)
-* [7](https://github.com/intempt/intempt-intemptjs#event-properties) - Properties primer [property](https://dev.intempt.com/#properties)
+* [1](https://github.com/intempt/intempt-intemptjs#install-and-initialize-script) - Downliad [download](https://dev.intempt.com/#customization-for-web)
+* [2](https://github.com/intempt/intempt-intemptjs#identifying-visitors) - Requirements [requirements](https://dev.intempt.com/#customization-for-web)
+* [3](https://github.com/intempt/intempt-intemptjs#identifying-visitors) - Install [install](https://dev.intempt.com/#customization-for-web)
+* [4](https://github.com/intempt/intempt-intemptjs#recording-custom-events) - Swift [swift](https://dev.intempt.com/#customization-for-web)
+* [5](https://github.com/intempt/intempt-intemptjs#tracking-revenue-with-trackcharge) - Objective-C [objective-c](https://dev.intempt.com/#customization-for-web)
+
+* [6](https://github.com/intempt/intempt-intemptjs#events-collections-and-properties) - Events, Collections & Properties [event collection properties](https://dev.intempt.com/#events-collections-and-properties)
+* [7](https://github.com/intempt/intempt-intemptjs#tracker-events) - Event primer [event](https://dev.intempt.com/#customization-for-web)
+* [8](https://github.com/intempt/intempt-intemptjs#event-properties) - Properties primer [property](https://dev.intempt.com/#properties)
 
 
 ### Download :
@@ -28,6 +30,20 @@ Download intempt.framework from https://github.com/intempt/intempt-objc-swift-sd
 ### Requirements
 - Minimum iOS 12.0+
 - Minimum Xcode 10.0
+
+### Install
+Open Project-->General-> Frameworks,Libraries, and Embedded Content 
+Intempt.framework must set to  Embed & Sign
+|<img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/1.png" width="1200">|
+
+Next go to app's  Info.Plist file and add the privacy key.
+
+| Key | Value |
+| ------ | ------ |
+| Privacy - Location Always Usage Description   |$(PRODUCT_NAME) location use |
+| Privacy - Location When In Use Usage Description | $(PRODUCT_NAME) location use |
+| Privacy - Location Always and When In Use Usage Description | $(PRODUCT_NAME) location use 
+
 ### Swift :
 If Xcode 11.3 or above
 go to SceneDelegate.swift File
@@ -69,18 +85,6 @@ Goto ViewController.m File
 
 }
 ```
-### Install
-Open Project-->General-> Frameworks,Libraries, and Embedded Content 
-Intempt.framework must set to  Embed & Sign
-|<img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/1.png" width="1200">|
-
-Next go to app's  Info.Plist file and add the privacy key.
-
-| Key | Value |
-| ------ | ------ |
-| Privacy - Location Always Usage Description   |$(PRODUCT_NAME) location use |
-| Privacy - Location When In Use Usage Description | $(PRODUCT_NAME) location use |
-| Privacy - Location Always and When In Use Usage Description | $(PRODUCT_NAME) location use 
 
 ### Identifying Visitors
 ``` swift
