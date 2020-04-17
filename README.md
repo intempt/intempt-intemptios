@@ -12,15 +12,18 @@ You can find the full API documentation on [dev.intempt.com](https://dev.intempt
 
 Contents:
 
-* [1](https://github.com/intempt/intempt-intemptjs#install-and-initialize-script) - Downliad [download](https://dev.intempt.com/#customization-for-web)
-* [2](https://github.com/intempt/intempt-intemptjs#identifying-visitors) - Requirements [requirements](https://dev.intempt.com/#customization-for-web)
-* [3](https://github.com/intempt/intempt-intemptjs#identifying-visitors) - Install [install](https://dev.intempt.com/#customization-for-web)
-* [4](https://github.com/intempt/intempt-intemptjs#recording-custom-events) - Swift [swift](https://dev.intempt.com/#customization-for-web)
-* [5](https://github.com/intempt/intempt-intemptjs#tracking-revenue-with-trackcharge) - Objective-C [objective-c](https://dev.intempt.com/#customization-for-web)
-
-* [6](https://github.com/intempt/intempt-intemptjs#events-collections-and-properties) - Events, Collections & Properties [event collection properties](https://dev.intempt.com/#events-collections-and-properties)
-* [7](https://github.com/intempt/intempt-intemptjs#tracker-events) - Event primer [event](https://dev.intempt.com/#customization-for-web)
-* [8](https://github.com/intempt/intempt-intemptjs#event-properties) - Properties primer [property](https://dev.intempt.com/#properties)
+* [1](https://github.com/intempt/intempt-intempt-ios-sdk#download) - Download [download](https://dev.intempt.com/#customization-for-web)
+* [2](https://github.com/intempt/intempt-ios-sdk#requirements) - Requirements [requirements](https://dev.intempt.com/#customization-for-web)
+* [3](https://github.com/intempt/intempt-ios-sdk#install) - Install [install](https://dev.intempt.com/#customization-for-web)
+* [4](https://github.com/intempt/intempt-ios-sdk#swift) - Swift [swift](https://dev.intempt.com/#customization-for-web)
+* [5](https://github.com/intempt/intempt-ios-sdk#objective-c) - Objective-C [objective-c](https://dev.intempt.com/#customization-for-web)
+* [6](https://github.com/intempt/intempt-ios-sdk#identifying-visitors) - How to identify a user [identify](https://dev.intempt.com/#customization-for-web)
+* [7](https://github.com/intempt/intempt-ios-sdk#recording-custom-events) - How to record a custom event [custom event](https://dev.intempt.com/#customization-for-web)
+* [8](https://github.com/intempt/intempt-ios-sdk#tracking-revenue-with-trackcharge) - How to track revenue [track charge](https://dev.intempt.com/#customization-for-web)
+* [9](https://github.com/intempt/intempt-ios-sdk#events-collections-and-properties) - Events, Collections & Properties [event collection properties](https://dev.intempt.com/#events-collections-and-properties)
+* [10](https://github.com/intempt/intempt-ios-sdk#tracker-events) - Event primer [event](https://dev.intempt.com/#customization-for-web)
+* [11](https://github.com/intempt/intempt-ios-sdk#event-properties) - Properties primer [property](https://dev.intempt.com/#properties)
+* [12](https://github.com/intempt/intempt-ios-sdk#ios-demo-app) - iOS Demo App [ios-demo-app](https://dev.intempt.com/#properties)
 
 
 ### Download :
@@ -90,6 +93,7 @@ Goto ViewController.m File
 ``` swift
 Intempt.identify("test@intempt.com", withProperties: nil, error: nil)
 ```
+
 ### Custom event
 On using this a user can create a custom event based on the need of the project and can track the event details with that custom method.
 ``` swift
@@ -136,7 +140,7 @@ The properties of the event include the time of the click, the id and other HTML
 The tracker code, once installed on a website, will automatically record many events that occur on the site.
 
 
-### DemoTracking App
+### Demo iOS App
 Add the framework in the application. once it launches, it will show the following pop up. click on "Allow While Using App". Thus you are enabling the keys to track your location details.
 <img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/2.png" width=“50>
 
@@ -149,7 +153,3 @@ Here on every touch event the tracker will fetch event details.
 
 On clicking payment button , purchase custom event will be fired in this project 
 <img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/5.png" width=“50>
-
-
-
-
