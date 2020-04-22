@@ -18,12 +18,12 @@ Contents:
 * [4](https://github.com/intempt/intempt-ios-sdk#swift) - Swift [swift](https://dev.intempt.com/#customization-for-web)
 * [5](https://github.com/intempt/intempt-ios-sdk#objective-c) - Objective-C [objective-c](https://dev.intempt.com/#customization-for-web)
 * [6](https://github.com/intempt/intempt-ios-sdk#identifying-visitors) - How to identify a user [identify](https://dev.intempt.com/#customization-for-web)
-* [7](https://github.com/intempt/intempt-ios-sdk#recording-custom-events) - How to record a custom event [custom event](https://dev.intempt.com/#customization-for-web)
+* [7](https://github.com/intempt/intempt-ios-sdk#custom-event) - How to record a custom event [custom event](https://dev.intempt.com/#customization-for-web)
 * [8](https://github.com/intempt/intempt-ios-sdk#tracking-revenue-with-trackcharge) - How to track revenue [track charge](https://dev.intempt.com/#customization-for-web)
 * [9](https://github.com/intempt/intempt-ios-sdk#events-collections-and-properties) - Events, Collections & Properties [event collection properties](https://dev.intempt.com/#events-collections-and-properties)
 * [10](https://github.com/intempt/intempt-ios-sdk#tracker-events) - Event primer [event](https://dev.intempt.com/#customization-for-web)
 * [11](https://github.com/intempt/intempt-ios-sdk#event-properties) - Properties primer [property](https://dev.intempt.com/#properties)
-* [12](https://github.com/intempt/intempt-ios-sdk#ios-demo-app) - iOS Demo App [ios-demo-app](https://dev.intempt.com/#properties)
+* [12](https://github.com/intempt/intempt-ios-sdk#demo-ios-app) - iOS Demo App [ios-demo-app](https://dev.intempt.com/#properties)
 
 
 ### Download :
