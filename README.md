@@ -21,7 +21,7 @@ Contents:
 * [7](https://github.com/intempt/intempt-ios-sdk#custom-event) - How to record a custom event [custom event](https://dev.intempt.com/#customization-for-web)
 * [8](https://github.com/intempt/intempt-ios-sdk#tracking-revenue-with-trackcharge) - How to track revenue [track charge](https://dev.intempt.com/#customization-for-web)
 * [9](https://github.com/intempt/intempt-ios-sdk#events-collections-and-properties) - Events, Collections & Properties [event collection properties](https://dev.intempt.com/#events-collections-and-properties)
-* [10](https://github.com/intempt/intempt-ios-sdk#tracker-events) - Event primer [event](https://dev.intempt.com/#customization-for-web)
+* [10](https://github.com/intempt/intempt-ios-sdk#ios-events) - Event primer [event](https://dev.intempt.com/#customization-for-web)
 * [11](https://github.com/intempt/intempt-ios-sdk#event-properties) - Properties primer [property](https://dev.intempt.com/#properties)
 * [12](https://github.com/intempt/intempt-ios-sdk#demo-ios-app) - iOS Demo App [ios-demo-app](https://dev.intempt.com/#properties)
 
@@ -140,6 +140,56 @@ The properties of the event include the time of the click, the id and other HTML
 The tracker code, once installed on a website, will automatically record many events that occur on the site.
 
 
+### Events, Collections, and Properties
+An event is a discrete interaction that occurs on your site. Events are organized by type into collections. Events have properties, key-value pairs that record relevant information about the event.
+
+For example, a user clicks on a link:
+
+1. The click is an event.
+
+2. It belongs to the interactions collection. (The interaction type is “click”.)
+
+3. The properties of the event include the time of the click, the id and other HTML attributes of the element that was clicked, the URL of the page on which the click happened, and so forth.
+
+4. The tracker code, once installed on a website, will automatically record many events that occur on the site.
+
+### iOS Events
+Events as recorded by the tracker code are conceptually somewhat different than events as defined in the Intempt app.
+On the JS side, events will soon be renamed to actions.
+
+Event collections are organized in a tree structure.
+
+visit
+visitor
+page
+interaction
+page_element_exists
+page_element_changed
+page_property_changed
+category_changed
+product_changed
+identify
+view
+interaction
+custom
+
+Because of this hierarchy, any event can be filtered or accessed based on the properties associated with something further up the tree.
+
+For example, if you wanted to find all button clicks associated with a particular visit, you can do that.
+
+Custom events logged manually using the JavaScript API appear with whatever collection name was assigned, under the custom collection.
+
+### Event Properties
+Events have properties, key-value pairs the record information about the event.
+
+Properties are grouped into two collections:
+
+fixed — Properties that are (relatively) stable, related to the visit or the visitor. This includes things like operating system, browser, and geolocaiton.
+
+timeseries — Properties that are specific to a particular interaction. This includes element-specific details, time stamps, and anything recorded as part of custom events.
+
+When logging a custom event, you can pass in any existing property key names, as well as define your own.
+
 ### Demo iOS App
 1. Add the framework in the application. once it launches, it will show the following pop up. click on "Allow While Using App". 
 
@@ -150,3 +200,4 @@ The tracker code, once installed on a website, will automatically record many ev
 4. Here on every touch event the tracker will fetch event details.
 
 5. On clicking payment button , purchase custom event will be fired in this project.
+
