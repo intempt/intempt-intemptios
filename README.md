@@ -131,7 +131,7 @@ example :
 
 Notice the key intempt.visit.trackcharge in the sample code above. If you use this key in the event details, the value will be recorded as revenue in the Intempt app. This allows you to assess the revenue impact of campaigns.
 
-Collections do not need to be predefined in the Intempt app. As soon as the tracker 
+Collections do not need to be predefined in the Intempt app.As soon as the tracker logs an event with a new collection name, that collection of events will be available in the app.
 
 ### Events, Collections, and Properties
 An event is a discrete interaction that occurs on your site. Events are organized by type into collections. Events have properties, key-value pairs that record relevant information about the event.
