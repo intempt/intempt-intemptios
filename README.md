@@ -120,6 +120,9 @@ example :
             ],
             "qtyTotal" : "4",
             "totalPrice": "260",
+            "intempt.visit.trackcharge" : "260"
+             
+
         }
     ]
 ``` 
@@ -128,48 +131,28 @@ example :
 
 Notice the key intempt.visit.trackcharge in the sample code above. If you use this key in the event details, the value will be recorded as revenue in the Intempt app. This allows you to assess the revenue impact of campaigns.
 
-Collections do not need to be predefined in the Intempt app. As soon as the tracker logs an event with a new collection name, that collection of events will be available in the app.
-
-Events, Collections, and Properties
-An event is a discrete interaction that occurs on your site. Events are organized by type into collections. Events have properties, key-value pairs that record relevant information about the event.
-
-For example, a user clicks on a link. The click is an event. It belongs to the interactions collection. (The interaction type is “click”.)
-
-The properties of the event include the time of the click, the id and other HTML attributes of the element that was clicked, the URL of the page on which the click happened, and so forth.
-
-The tracker code, once installed on a website, will automatically record many events that occur on the site.
-
+Collections do not need to be predefined in the Intempt app. As soon as the tracker 
 
 ### Events, Collections, and Properties
 An event is a discrete interaction that occurs on your site. Events are organized by type into collections. Events have properties, key-value pairs that record relevant information about the event.
 
-For example, a user clicks on a link:
+For example, a user clicks on UIButton
 
-1. The click is an event.
+1. It belongs to the interactions collection. (The interaction type is "Action".)
 
-2. It belongs to the interactions collection. (The interaction type is “click”.)
+2. The properties including in this event like time of click, other attributes of related elements during the event action and the  action event belongs to which View Controller etc all will be automatically tracked once this tracker code SDK is added in the existing application.
 
-3. The properties of the event include the time of the click, the id and other HTML attributes of the element that was clicked, the URL of the page on which the click happened, and so forth.
-
-4. The tracker code, once installed on a website, will automatically record many events that occur on the site.
 
 ### iOS Events
 Events as recorded by the tracker code are conceptually somewhat different than events as defined in the Intempt app.
-On the JS side, events will soon be renamed to actions.
+On the iOS side, events will soon be renamed to actions.
 
 Event collections are organized in a tree structure.
 
-visit
-visitor
-page
-interaction
-page_element_exists
-page_element_changed
-page_property_changed
-category_changed
-product_changed
+Profile
+Launch
+Scene
 identify
-view
 interaction
 custom
 
@@ -177,14 +160,14 @@ Because of this hierarchy, any event can be filtered or accessed based on the pr
 
 For example, if you wanted to find all button clicks associated with a particular visit, you can do that.
 
-Custom events logged manually using the JavaScript API appear with whatever collection name was assigned, under the custom collection.
+Custom events logged manually using the Rest API appear with whatever collection name was assigned, under the custom collection.
 
 ### Event Properties
 Events have properties, key-value pairs the record information about the event.
 
 Properties are grouped into two collections:
 
-fixed — Properties that are (relatively) stable, related to the visit or the visitor. This includes things like operating system, browser, and geolocaiton.
+fixed — Properties that are (relatively) stable, related to the profile,launch or the scene. This includes things like device name,osVersion,app name and geolocaiton etc.
 
 timeseries — Properties that are specific to a particular interaction. This includes element-specific details, time stamps, and anything recorded as part of custom events.
 
