@@ -173,6 +173,47 @@ timeseries — Properties that are specific to a particular interaction. This in
 
 When logging a custom event, you can pass in any existing property key names, as well as define your own.
 
+# intempt Proximity SDK - iOS
+
+Install an intempt beacon At your preferable place.Add this SDK in your existing application. Thus it will help you to know about your entry and exit range.
+This sdk supports any kind of beacon that allows you to change the UUID in the vendors Beacon Manager. The UUID is a unique broadcasting number which allows Intempt to know which types of beacons to look for. You can think of it like tuning to a radio station.
+
+Today, Intempt’s mobile SDK looks for ONE UUID by default. Use any of them with your existing beacons to enable them with Intempt.
+
+### Key components
+
+intempt  Proximity SDK is built on top of two key components: _
+
+- Entry -  when you are enter a  region.
+
+- Exit -  when you are exit  a  region.
+# Installation
+### Swift Language :
+``` swift
+IntemptClient.shared()?.uuidString("0fdb9b40-cf82-4362-ba5d-246f094f5c2a");
+IntemptClient.shared()?.delegate = self
+Protocol Delegate - intemptDelegate
+/*Helps to detect the entry time , when application entered the monitoring region*/
+func  didEnterRegion(_ entryTime: String!) {
+}
+/*Helps to detect the exit time , when application exits the monitoring region*/
+
+func  didExitRegion(_ exitTime: String!) {
+
+}
+```
+
+### Objective C Language  :
+``` swift
+[[IntemptClient  sharedClient] uuidString:@"0fdb9b40-cf82-4362-ba5d-246f094f5c2a"];
+[[IntemptClient  sharedClient] setDelegate:self];
+Protocol Delegate - intemptDelegate
+/*Helps to detect the entry time , when application entered the monitoring region.*/
+-(void)didEnterRegion:(NSString*)entryTime;
+/*Helps to detect the exit time,when application exits the monitoring region.*/
+-(void)didExitRegion:(NSString*)exitTime;
+```
+
 ### Demo iOS App
 1. Add the framework in the application. once it launches, it will show the following pop up. click on "Allow While Using App". 
 
