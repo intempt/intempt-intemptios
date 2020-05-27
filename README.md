@@ -105,15 +105,11 @@ example :
 ```
 ```json 
    arrayData =      [
-                {
-           
+                {       
+             "flightId" : "1",
             "bookingDate" : "2020-05-26",
             "bookingId": "2",
-            "bookingStatus" : "booked",
-            "eventId" : "a9c5c093de224f49acddbe054a05c8dc",
-            "visitorId" : "e257ebfd8f90429eae312e46346870fb",
-             "flightId" : "1",
-
+            "bookingStatus" : "booked"
         }
     ]
 ``` 
