@@ -101,27 +101,18 @@ On using this a user can create a custom event based on the need of the project 
 ```
 example :
 ``` swift
- Intempt.track("purchase", withProperties: arrayData, error: nil)
+ Intempt.track("flight-booking", withProperties: arrayData, error: nil)
 ```
 ```json 
    arrayData =      [
                 {
-            "items":             [
-                                {
-                    "itemName":  "Slim Jean",
-                    "price":"180",
-                    "qty"  "2"
-                },
-                                {
-                    "itemName":  "Trousers",
-                    "price":  "80",
-                    "qty":  "2",
-                },
-            ],
-            "qtyTotal" : "4",
-            "totalPrice": "260",
-            "intempt.visit.trackcharge" : "260"
-             
+           
+            "bookingDate" : "2020-05-26",
+            "bookingId": "2",
+            "bookingStatus" : "booked",
+            "eventId" : "a9c5c093de224f49acddbe054a05c8dc",
+            "visitorId" : "e257ebfd8f90429eae312e46346870fb",
+             "flightId" : "1",
 
         }
     ]
