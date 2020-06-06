@@ -40,7 +40,7 @@ You can test the functionality of this framework with the demo app located over 
 
 ## Install and Initialize script
 
-1. Drag & drop the `intempt.framework` into your iOS Project.
+1. Drag & drop the `intempt.framework` into your iOS Project, underneath your project's folder and **NOT** in the frameworks folder.
 
 2. Select Project --> General --> Frameworks, Libraries, and Embedded Content and the newly installed `intempt.framework` must set to Embed & Sign. If you didn't download it, please go and download it from [here](https://github.com/intempt/intempt-ios-sdk#download).
 
