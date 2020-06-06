@@ -10,7 +10,7 @@ This is a library to facilitate automatic tracking of anonymous and logged in tr
 
 You can find the full API documentation on [dev.intempt.com](https://dev.intempt.com).
 
-## Contents:
+## Contents
 
 * [1](https://github.com/intempt/intempt-intempt-ios-sdk#download) - Download [download](https://dev.intempt.com/#customization-for-web)
 * [2](https://github.com/intempt/intempt-ios-sdk#requirements) - Requirements [requirements](https://dev.intempt.com/#customization-for-web)
@@ -25,14 +25,14 @@ You can find the full API documentation on [dev.intempt.com](https://dev.intempt
 * [11](https://github.com/intempt/intempt-ios-sdk#event-properties) - Properties primer [property](https://dev.intempt.com/#properties)
 * [12](https://github.com/intempt/intempt-ios-sdk#demo-ios-app) - iOS Demo App [ios-demo-app](https://dev.intempt.com/#properties)
 
-## Download:
+## Download
 
 Download the `intempt.framework` from https://github.com/intempt/intempt-objc-swift-sdk and then drag & drop the `intempt.framework` into your iOS Project.
 
 ## Requirements
 
 - Minimum iOS 12.0+
-- Minimum Xcode 10.0
+- Minimum Xcode 10.0+
 
 ## Install
 
@@ -46,9 +46,9 @@ Next go to the app's `Info.Plist` file and add the following privacy keys.
 | ------ | ------ |
 | Privacy - Location Always Usage Description   |$(PRODUCT_NAME) location use |
 | Privacy - Location When In Use Usage Description | $(PRODUCT_NAME) location use |
-| Privacy - Location Always and When In Use Usage Description | $(PRODUCT_NAME) location use 
+| Privacy - Location Always and When In Use Usage Description | $(PRODUCT_NAME) location use|
 
-## Swift:
+### Swift:
 
 If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste the following:
 
@@ -71,7 +71,7 @@ import intempt
 }
 ```
 
-## Objective-C:
+### Objective-C:
 
 If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste the following:
 
@@ -136,7 +136,7 @@ Collections do not need to be predefined in the Intempt app. As soon as the trac
 
 An event is a discrete interaction that occurs on your site. Events are organized by type into collections. Events have properties, key-value pairs that record relevant information about the event.
 
-For example, a user clicks on UIButton
+For example, a user clicks on a UIButton
 
 1. It belongs to the interactions collection. (The interaction type is "Action".)
 
@@ -177,6 +177,7 @@ When logging a custom event, you can pass in any existing property key names, as
 # Intempt Proximity SDK - iOS
 
 Install an Intempt beacon At your preferable place.Add this SDK in your existing application. Thus it will help you to know about your entry and exit range.
+
 This sdk supports any kind of beacon that allows you to change the UUID in the vendors Beacon Manager. The UUID is a unique broadcasting number which allows Intempt to know which types of beacons to look for. You can think of it like tuning to a radio station.
 
 Today, Intempt’s mobile SDK looks for ONE UUID by default. Use any of them with your existing beacons to enable them with Intempt.
