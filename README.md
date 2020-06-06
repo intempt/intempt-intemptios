@@ -31,7 +31,7 @@ Download the `intempt.framework` from https://github.com/intempt/intempt-objc-sw
 
 ## Demo
 
-You can test the functionality of this framework on the demo app located over [here](https://github.com/intempt/intempt-ios-demo).
+You can test the functionality of this framework with the demo app located over [here](https://github.com/intempt/intempt-ios-demo).
 
 ## Requirements
 
