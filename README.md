@@ -10,7 +10,7 @@ This is a library to facilitate automatic tracking of anonymous and logged in tr
 
 You can find the full API documentation on [dev.intempt.com](https://dev.intempt.com).
 
-## Contents:
+## Contents
 
 * [1](https://github.com/intempt/intempt-intempt-ios-sdk#download) - Download [download](https://dev.intempt.com/#customization-for-web)
 * [2](https://github.com/intempt/intempt-ios-sdk#requirements) - Requirements [requirements](https://dev.intempt.com/#customization-for-web)
@@ -25,32 +25,40 @@ You can find the full API documentation on [dev.intempt.com](https://dev.intempt
 * [11](https://github.com/intempt/intempt-ios-sdk#event-properties) - Properties primer [property](https://dev.intempt.com/#properties)
 * [12](https://github.com/intempt/intempt-ios-sdk#demo-ios-app) - iOS Demo App [ios-demo-app](https://dev.intempt.com/#properties)
 
-## Download:
+## Download
 
-Download the `intempt.framework` from https://github.com/intempt/intempt-objc-swift-sdk and then drag & drop the `intempt.framework` into your iOS Project.
+Download the `intempt.framework` from https://github.com/intempt/intempt-objc-swift-sdk.
+
+## Demo
+
+You can test the functionality of this framework with the demo app located over [here](https://github.com/intempt/intempt-ios-demo).
 
 ## Requirements
 
 - Minimum iOS 12.0+
-- Minimum Xcode 10.0
+- Minimum Xcode 10.0+
 
-## Install
+## Install and Initialize script
 
-Open Project--> General --> Frameworks, Libraries, and Embedded Content and the newly installed `intempt.framework` must set to Embed & Sign. If you didn't download it, please go and download it from [here](https://github.com/intempt/intempt-ios-sdk#download)
+1. Drag & drop the `intempt.framework` into your iOS Project, underneath your project's folder and **NOT** in the frameworks folder.
 
-|<img src="https://github.com/intempt/iOS-Tracker-sdk/blob/master/screenshots/1.png" width="1200">|
+2. Select Project --> General --> Frameworks, Libraries, and Embedded Content and the newly installed `intempt.framework` must set to Embed & Sign. If you didn't download it, please go and download it from [here](https://github.com/intempt/intempt-ios-sdk#download).
 
-Next go to the app's `Info.Plist` file and add the following privacy keys.
+3. Next go to the app's `Info.Plist` file and add the following privacy keys.
 
 | Key | Value |
 | ------ | ------ |
 | Privacy - Location Always Usage Description   |$(PRODUCT_NAME) location use |
 | Privacy - Location When In Use Usage Description | $(PRODUCT_NAME) location use |
-| Privacy - Location Always and When In Use Usage Description | $(PRODUCT_NAME) location use 
+| Privacy - Location Always and When In Use Usage Description | $(PRODUCT_NAME) location use |
+
+4. You will need to [log-in](https://app.intempt.com/) to Intempt App and to create an iOS source.
+
+5. Copy the code snippet generated and paste it just like shown in the following, whether you are using Swift or Objective-C.
 
 ## Swift:
 
-If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste the following:
+If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste the copied source snippet into the `scene` function:
 
 ``` swift
 import intempt
@@ -61,7 +69,7 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
    }
 ```
 
-Else you will have the `ViewController.mt` file and paste the following:
+Else you will have the `ViewController.mt` file and then paste the copied source snippet into the `viewDidLoad` function:
 
 ``` swift
 import intempt
@@ -73,7 +81,7 @@ import intempt
 
 ## Objective-C:
 
-If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste the following:
+If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste the copied source snippet like the following:
 
 ``` swift
 @import intempt;
@@ -83,7 +91,7 @@ If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste 
 }
 ```
 
-Else you will have the `ViewController.mt` file and paste the following:
+Else you will have the `ViewController.mt` file and then paste the copied source snippet like the following:
 
 ``` swift
 @import intempt
@@ -104,13 +112,13 @@ Intempt.identify("test@intempt.com", withProperties: nil, error: nil)
 
 ## Custom Event
 
-On using this a user can create a custom event based on the need of the project and can track the event details with that custom method.
+When using this you can create a custom event based on the needs of the project and that will help you keep track of event details with that custom method.
 
 ``` swift
  Intempt.track(collectionName, withProperties: arraydata, error: nil)
 ```
 
-Example:
+Example code:
 
 ``` swift
  Intempt.track("flight-booking", withProperties: arrayData, error: nil)
@@ -128,7 +136,7 @@ Example:
 
 ## Tracking Revenue with `trackcharge`
 
-Notice the key intempt.visit.trackcharge in the sample code above. If you use this key in the event details, the value will be recorded as revenue in the Intempt app. This allows you to assess the revenue impact of campaigns.
+Notice the key `intempt.visit.trackcharge` in the sample code above. If you use this key in the event details, the value will be recorded as revenue in the Intempt app. This allows you to assess the revenue impact of campaigns.
 
 Collections do not need to be predefined in the Intempt app. As soon as the tracker logs an event with a new collection name, that collection of events will be available in the app.
 
@@ -191,7 +199,7 @@ Intempt Proximity SDK is built on top of two key components:
 
 ## Installation
 
-### Swift Language:
+### Swift:
 
 ``` swift
 IntemptClient.shared()?.uuidString("0fdb9b40-cf82-4362-ba5d-246f094f5c2a");
@@ -207,7 +215,7 @@ func  didExitRegion(_ exitTime: String!) {
 }
 ```
 
-### Objective-C Language:
+### Objective-C:
 
 ``` swift
 [[IntemptClient  sharedClient] uuidString:@"0fdb9b40-cf82-4362-ba5d-246f094f5c2a"];
@@ -221,12 +229,12 @@ Protocol Delegate - intemptDelegate
 
 ### Demo iOS App
 
-1. Add the framework in the application. once it launches, it will show the following pop up. click on "Allow While Using App". 
+1. Add the framework to the application and once it launches, it will show the a permission pop-up to allow sharing your location. You will have to click click on "Allow While Using App". 
 
-2. Thus you are enabling the keys to track your location details.
+2. This enables the keys to track your location details.
 
-3. In the following demo application, after running it will display a Login Screen. On clicking the login button it fires the IdentifyVisitor function.
+3. In the following demo application, after running it will display a Login Screen. After clicking the login button it loads up Intempt's IdentifyVisitor function.
 
-4. Here on every touch event the tracker will fetch event details.
+4. On every touch event the tracker will fetch event details.
 
-5. On clicking payment button , purchase custom event will be fired in this project.
+5. After clicking on the payment button, and successfully going on with a purchase, the purchase custom event will be triggered in the application.
