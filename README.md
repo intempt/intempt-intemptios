@@ -39,9 +39,9 @@ You can test the functionality of this framework with the demo app located over 
 
 ### Installation
 
-1. Drag & drop the `Intempt.framework` into your iOS Project, underneath your project's folder and **NOT** in the frameworks folder.
+1. Drag & drop the `Intempt.framework` into your iOS project, underneath your project's folder and **NOT** in the `Frameworks` folder (if exits).
 
-2. Select Project --> General --> Frameworks, Libraries, and Embedded Content and the newly installed `Intempt.framework` must set to Embed & Sign. If you didn't download it, please go and download it from [here](https://github.com/intempt/intempt-ios-sdk#download).
+2. Select Project --> General --> Frameworks, Libraries, and Embedded Content and the newly installed `Intempt.framework` must set to `Embed & Sign`. If you didn't download it, please go and download it from [here](https://github.com/intempt/intempt-ios-sdk#download).
 
 3. Next go to the app's `Info.plist` file and add the following privacy keys.
 
