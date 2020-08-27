@@ -52,9 +52,9 @@
 @property (strong, nonatomic) NSString *baseUrl;
 @property (strong, nonatomic) CBCentralManager *centralManager;
 @property (strong, nonatomic) CBPeripheral *discoveredPeripheral;
-@property (strong, nonatomic) NSMutableData *data;
 @property (strong, nonatomic) NSString *orgId;
 @property (strong, nonatomic) NSString *trackerId;
+//@property (strong, nonatomic) NSMutableData *data;
 
 /**
 Add Description
