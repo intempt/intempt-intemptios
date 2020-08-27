@@ -1,9 +1,9 @@
 //
-//  intempt.h
+//  Intempt.h
 //  intempt
 //
-//  Created by Tanay Bhattacharjee on 18/03/20.
-//  Copyright © 2020 Tanay Bhattacharjee. All rights reserved.
+//  Created by Intempt on 18/03/20.
+//  Copyright © 2020 Intempt. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
