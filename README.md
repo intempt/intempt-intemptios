@@ -62,7 +62,7 @@ If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste 
 ``` swift
 import Intempt
 func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {       
-       IntemptTracker.tracking(withOrgId: "playground", andSourceId: "Your Source ID", andToken: "Your Token")
+       IntemptTracker.tracking(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token")
     
        guard let _ = (scene as? UIWindowScene) else { return }
    }
@@ -74,7 +74,7 @@ Else you will have the `ViewController.m` file and then paste the copied source 
 import Intempt
   override func viewDidLoad() {
         super.viewDidLoad()
-        IntemptTracker.tracking(withOrgId: "playground", andSourceId: "Your Source ID", andToken: "Your Token")
+        IntemptTracker.tracking(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token")
 }
 ```
 
@@ -85,7 +85,7 @@ If you are using Xcode 11.3 or above go to `SceneDelegate.m` file and paste the 
 ``` objectivec
 @import Intempt;
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    [IntemptTracker trackingWithOrgId:@"playground" andSourceId:@"Your Source ID" andToken:@"Your Token"];
+    [IntemptTracker trackingWithOrgId:@"Your Organization ID" andSourceId:@"Your Source ID" andToken:@"Your Token"];
 }
 ```
 
@@ -95,7 +95,7 @@ Else you will have the `ViewController.m` file and then paste the copied source 
 @import Intempt
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [IntemptTracker trackingWithOrgId:@"playground" andSourceId:@"Your Source ID" andToken:@"Your Token"];
+    [IntemptTracker trackingWithOrgId:@"Your Organization ID" andSourceId:@"Your Source ID" andToken:@"Your Token"];
 }
 ```
 
@@ -214,7 +214,7 @@ Go to app's Info.plist file and add the privacy keys.
 import Intempt
   override func viewDidLoad() {
   		super.viewDidLoad()
-        IntemptTracker.beaconUUIDString("playground", andSourceId: "Your Source ID", andToken: "Your Token", uuuid:"Your iOS device UUID")
+        IntemptTracker.beaconWithOrgId("Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token", uuuid:"Your iOS device UUID")
         IntemptClient.shared()?.delegate = self
 }
 ```
@@ -238,7 +238,7 @@ func  didExitRegion(_ beaconData: CLBeacon!) {
 @import Intempt;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [IntemptTracker beaconUUIDString:@"playground" andSourceId:@"Your Source ID" andToken:@"Your Token" uuuid:@"Your iOS Device UUID"];
+    [IntemptTracker beaconWithOrgId:@"Your Organization ID" andSourceId:@"Your Source ID" andToken:@"Your Token" uuuid:@"Your iOS Device UUID"];
     IntemptClient.sharedClient.delegate = self;
 }
 ```

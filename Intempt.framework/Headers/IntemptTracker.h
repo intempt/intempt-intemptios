@@ -68,7 +68,7 @@ Please add description.
  @param token Your Intempt Source token generated from intempt developer console
  @param uuid A device UUID
 */
-+ (void)beaconUUIDString:(NSString*)orgId andSourceId:(NSString*)sourceId andToken:(NSString*)token andDeviceUUID:(NSString*)uuid;
++ (void)beaconWithOrgId:(NSString*)orgId andSourceId:(NSString*)sourceId andToken:(NSString*)token andDeviceUUID:(NSString*)uuid;
 @end
 
 #endif
