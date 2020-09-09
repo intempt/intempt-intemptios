@@ -220,7 +220,7 @@ Go to app's Info.plist file and add the privacy keys.
 import Intempt
   override func viewDidLoad() {
   		super.viewDidLoad()
-        IntemptTracker.beaconWithOrgId("Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token", uuuid:"Your iOS device UUID")
+        IntemptTracker.beacon(withOrgId: "playground", andSourceId: "Your Source ID", andToken: "Your Token", andDeviceUUID:"Beacon device UUID")
         IntemptClient.shared()?.delegate = self
 }
 ```
@@ -244,7 +244,7 @@ func  didExitRegion(_ beaconData: CLBeacon!) {
 @import Intempt;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [IntemptTracker beaconWithOrgId:@"Your Organization ID" andSourceId:@"Your Source ID" andToken:@"Your Token" uuuid:@"Your iOS Device UUID"];
+    [IntemptTracker beaconWithOrgId:@"playground" andSourceId:@"Your Source ID" andToken:@"Your Token" andDeviceUUID:@"Beacon device UUID"];
     IntemptClient.sharedClient.delegate = self;
 }
 ```
