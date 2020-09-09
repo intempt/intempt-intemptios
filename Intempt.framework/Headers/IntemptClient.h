@@ -27,18 +27,18 @@
 
 @interface IntemptClient : NSObject <CLLocationManagerDelegate,CBCentralManagerDelegate, CBPeripheralDelegate> {
     int exitFlag;
-    NSString * visitorId,*CfbundleIdentifier,*parentId, *eventId;
+    NSString *visitorId, *CfbundleIdentifier, *parentId, *eventId;
     double latitude;
     double longitude;
-    NSMutableDictionary *profileDic ,*sceneDic,* interactionDic,*deviceDic,*geoDic,*appDic,*launchDic,*screenDic ;
-    NSMutableArray *profileArydata,*launchArydata,*sceneArydata,*interactionArydata,*interactionArydatas,*ary;
-    NSMutableDictionary *dictValue,*dictvalue1;
-    NSMutableArray * beaconData;
-    NSString *region,*country,*city,*strCheck,*str;
+    NSMutableDictionary *profileDic, *sceneDic, *interactionDic, *deviceDic, *geoDic, *appDic, *launchDic, *screenDic;
+    NSMutableArray *profileArydata, *launchArydata, *sceneArydata, *interactionArydata, *interactionArydatas, *ary;
+    NSMutableDictionary *dictValue, *dictvalue1;
+    NSMutableArray *beaconData;
+    NSString *region, *country, *city, *strCheck, *str;
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
     int count;
-    NSString * major,*proximityVisitorId,*sstrMajor;
+    NSString *major, *proximityVisitorId, *sstrMajor;
 }
 
 @property (weak, nonatomic) id <intemptDelegate> delegate;
