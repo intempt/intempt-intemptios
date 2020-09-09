@@ -25,36 +25,11 @@
 
 @end
 
-@interface IntemptClient : NSObject <CLLocationManagerDelegate,CBCentralManagerDelegate, CBPeripheralDelegate> {
-    int exitFlag;
-    NSString *visitorId, *CfbundleIdentifier, *parentId, *eventId;
-    double latitude;
-    double longitude;
-    NSMutableDictionary *profileDic, *sceneDic, *interactionDic, *deviceDic, *geoDic, *appDic, *launchDic, *screenDic;
-    NSMutableArray *profileArydata, *launchArydata, *sceneArydata, *interactionArydata, *interactionArydatas, *ary;
-    NSMutableDictionary *dictValue, *dictvalue1;
-    NSMutableArray *beaconData;
-    NSString *region, *country, *city, *strCheck, *str;
-    CLGeocoder *geocoder;
-    CLPlacemark *placemark;
-    int count;
-    NSString *major, *proximityVisitorId, *sstrMajor;
-}
+@interface IntemptClient : NSObject
 
 @property (weak, nonatomic) id <intemptDelegate> delegate;
-@property (assign, nonatomic) NSInteger currentState;
-@property (strong, nonatomic) NSMutableArray *majorArrayData;
-@property (strong, nonatomic) NSMutableArray *filterBuffer;
-@property (strong, nonatomic) NSMutableArray *entryArray;
-@property (strong, nonatomic) NSMutableArray *exitArray;
-@property (strong, nonatomic) NSDictionary *propertiesOverridesDictionary;
+
 @property (strong, nonatomic) CLLocation *currentLocation;
-@property (strong, nonatomic) NSString *baseUrl;
-@property (strong, nonatomic) CBCentralManager *centralManager;
-@property (strong, nonatomic) CBPeripheral *discoveredPeripheral;
-@property (strong, nonatomic) NSString *orgId;
-@property (strong, nonatomic) NSString *trackerId;
-//@property (strong, nonatomic) NSMutableData *data;
 
 /**
 Add Description
