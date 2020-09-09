@@ -99,6 +99,12 @@ Else you will have the `ViewController.m` file and then paste the copied source 
 }
 ```
 
+#### Get VisitorId From Framework
+
+``` swift
+let visitorId = IntemptClient.shared()?.getVisitorId()
+```
+
 ### Identifying Visitors
 
 ``` swift
