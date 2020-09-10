@@ -99,16 +99,17 @@ Else you will have the `ViewController.m` file and then paste the copied source 
 }
 ```
 
-#### Get VisitorId From Framework
+### Get VisitorId From Framework
 
 ``` swift
 let visitorId = IntemptClient.shared()?.getVisitorId()
 ```
 
 ### Identifying Visitors
+Provide email or phone number.
 
 ``` swift
-IntemptTracker.identify("test@intempt.com", withProperties: nil, error: nil)
+IntemptTracker.identify("test@example.com", withProperties: nil, error: nil)
 ```
 
 ### Custom Event
@@ -214,13 +215,13 @@ Go to app's Info.plist file and add the privacy keys.
 | Privacy - Bluetooth Always Usage Description | Bluetooth used to track where you are |
 
 
-### Swift:
+#### Swift:
 
 ``` swift
 import Intempt
   override func viewDidLoad() {
   		super.viewDidLoad()
-        IntemptTracker.beacon(withOrgId: "playground", andSourceId: "Your Source ID", andToken: "Your Token", andDeviceUUID:"Beacon device UUID")
+        IntemptTracker.beacon(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token", andDeviceUUID:"Beacon device UUID")
         IntemptClient.shared()?.delegate = self
 }
 ```
@@ -237,14 +238,14 @@ func  didExitRegion(_ beaconData: CLBeacon!) {
 }
 ```
 
-### Objective-C:
+#### Objective-C:
 
 
 ``` objectivec
 @import Intempt;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [IntemptTracker beaconWithOrgId:@"playground" andSourceId:@"Your Source ID" andToken:@"Your Token" andDeviceUUID:@"Beacon device UUID"];
+    [IntemptTracker beaconWithOrgId:@"Your Organization ID" andSourceId:@"Your Source ID" andToken:@"Your Token" andDeviceUUID:@"Beacon device UUID"];
     IntemptClient.sharedClient.delegate = self;
 }
 ```
