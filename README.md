@@ -212,7 +212,8 @@ Go to app's Info.plist file and add the privacy keys.
 | Privacy - Location Always Usage Description | Location used to track where you are |
 | Privacy - Location When In Use Usage Description | Location used to track where you are |
 | Privacy - Location Always and When In Use Usage Description | Location used to track where you are |
-| Privacy - Bluetooth Always Usage Description | Bluetooth used to track where you are |
+| Privacy - Bluetooth Always Usage Description | This app uses Bluetooth communication to detect nearby beacons |
+| Privacy - Bluetooth Peripheral Usage Description | This app uses Bluetooth communication to detect nearby beacons |
 
 
 #### Swift:
