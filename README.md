@@ -109,7 +109,11 @@ let visitorId = IntemptClient.shared()?.getVisitorId()
 Provide email or phone number.
 
 ``` swift
-IntemptTracker.identify("test@example.com", withProperties: nil, error: nil)
+IntemptTracker.identify("test@example.com", withProperties: nil) { (status, error) in 
+	if(status) {
+		//Do something
+	}
+}
 ```
 
 ### Custom Event
@@ -124,7 +128,11 @@ let arrayData = [{
                 "bookingStatus" : "booked"
               }]
              
-IntemptTracker.track("flight-booking", withProperties: arrayData, error: nil)
+IntemptTracker.track("Online Hotel Booking", withProperties: arrHotelBooking as? [Any]) { (status, error) in
+	if(status) {
+		//Do something
+	}
+}
 ```
 
 ### Tracking Revenue with `trackcharge`
@@ -263,4 +271,14 @@ Next implement this methods:
 }
 ```
 
+#### Identifying Visitors (Optional)
+Provide email or phone number.
 
+``` swift
+IntemptTracker.identifyUsingBeacon("test@example.com", withProperties: nil) { (status, error) in 
+	if(status) {
+		//Do something
+	}
+}
+```
+Use this method when you want to identify using beacon API separately.  
