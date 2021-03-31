@@ -61,11 +61,76 @@ If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste 
 
 ``` swift
 import Intempt
-func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {       
-       IntemptTracker.tracking(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token")
-    
+func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {  
+
+       // Request to user for tracking permission
+       requestTrackingPermission()
        guard let _ = (scene as? UIWindowScene) else { return }
    }
+   
+   func sceneWillEnterForeground(_ scene: UIScene) {
+        // Called as the scene transitions from the background to the foreground.
+        // Use this method to undo the changes made on entering the background.
+        
+        if let enabled = UserDefaults.standard.value(forKey: "TrackingEnabled") as? Bool, enabled == false {
+            if #available(iOS 14, *) {
+                if ATTrackingManager.trackingAuthorizationStatus == .authorized {
+                    requestTrackingPermission()
+                }
+            }
+        }
+    }
+   
+   private func requestTrackingPermission() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                switch status {
+                    case .authorized:
+                        // Tracking authorization dialog was shown
+                        // and we are authorized
+                        print("Tracking authorized.")
+                        
+                        UserDefaults.standard.set(true, forKey: "TrackingEnabled")
+                        // Now that we are authorized we can get the IDFA
+                        self.initializeIntemptTracking()
+                    case .denied:
+                        // Tracking authorization dialog was
+                        // shown and permission is denied
+                        print("Denied. Please turn on app tracking to enable app analytics.")
+                        UserDefaults.standard.set(false, forKey: "TrackingEnabled")
+                    case .notDetermined:
+                        // Tracking authorization dialog has not been shown
+                        print("Not determined.")
+                    case .restricted:
+                        print("Restricted. Please turn on app tracking to enable app analytics.")
+                        UserDefaults.standard.set(false, forKey: "TrackingEnabled")
+                    @unknown default:
+                        print("Unknown.")
+                }
+            }
+        }
+        else {
+            initializeIntemptTracking()
+        }
+    }
+   
+   private func initializeIntemptTracking() {
+        //Initialize Intempt SDK
+        let intemptConfig = IntemptConfig(queueEnabled: true, withItemsInQueue: 0, withTimeBuffer: 7, withInitialDelay: 0.3, withInputTextCaptureDisabled: true)
+        IntemptTracker.tracking(withOrgId: "Your Organization ID", withSourceId: "Your Source ID", withToken: "Your Token", withConfig: intemptConfig) { (status, result, error) in
+            if(status) {
+                if let dictResult = result as? [String: Any] {
+                    print(dictResult)
+                }
+            }
+            else {
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        IntemptClient.enableLogging()
+    }
 ```
 
 Else you will have the `ViewController.m` file and then paste the copied source snippet into the `viewDidLoad` function:
@@ -75,27 +140,6 @@ import Intempt
   override func viewDidLoad() {
         super.viewDidLoad()
         IntemptTracker.tracking(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token")
-}
-```
-
-#### Objective-C:
-
-If you are using Xcode 11.3 or above go to `SceneDelegate.m` file and paste the copied source snippet like the following:
-
-``` objectivec
-@import Intempt;
-- (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    [IntemptTracker trackingWithOrgId:@"Your Organization ID" andSourceId:@"Your Source ID" andToken:@"Your Token"];
-}
-```
-
-Else you will have the `ViewController.m` file and then paste the copied source snippet like the following:
-
-``` objectivec
-@import Intempt
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [IntemptTracker trackingWithOrgId:@"Your Organization ID" andSourceId:@"Your Source ID" andToken:@"Your Token"];
 }
 ```
 
@@ -109,7 +153,7 @@ let visitorId = IntemptClient.shared()?.getVisitorId()
 Provide email or phone number.
 
 ``` swift
-IntemptTracker.identify("test@example.com", withProperties: nil) { (status, error) in 
+IntemptTracker.identify("test@example.com", withProperties: nil) { (status, result, error) in 
 	if(status) {
 		//Do something
 	}
@@ -128,7 +172,7 @@ let arrayData = [{
                 "bookingStatus" : "booked"
               }]
              
-IntemptTracker.track("Online Hotel Booking", withProperties: arrHotelBooking as? [Any]) { (status, error) in
+IntemptTracker.track("Online Hotel Booking", withProperties: arrHotelBooking as? [Any]) { (status, result, error) in
 	if(status) {
 		//Do something
 	}
@@ -230,7 +274,11 @@ Go to app's Info.plist file and add the privacy keys.
 import Intempt
   override func viewDidLoad() {
   		super.viewDidLoad()
-        IntemptTracker.beacon(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token", andDeviceUUID:"Beacon device UUID")
+  		IntemptTracker.beacon(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token", andDeviceUUID: "Beacon device UUID") { (success, result, error) in
+  		  if(success) {
+		    //Do something
+	      } 
+        }
         IntemptClient.shared()?.delegate = self
 }
 ```
@@ -247,35 +295,11 @@ func  didExitRegion(_ beaconData: CLBeacon!) {
 }
 ```
 
-#### Objective-C:
-
-
-``` objectivec
-@import Intempt;
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [IntemptTracker beaconWithOrgId:@"Your Organization ID" andSourceId:@"Your Source ID" andToken:@"Your Token" andDeviceUUID:@"Beacon device UUID"];
-    IntemptClient.sharedClient.delegate = self;
-}
-```
-
-Next implement this methods:
-
-``` objectivec
-/*Helps to detect the entry time , when application entered the monitoring region*/
-- (void)didEnterRegion:(CLBeacon*)beaconData {
-}
-
-/*Helps to detect the exit time , when application exits the monitoring region*/
-- (void)didExitRegion:(CLBeacon*)beaconData {
-}
-```
-
 #### Identifying Visitors (Optional)
 Provide email or phone number.
 
 ``` swift
-IntemptTracker.identifyUsingBeacon("test@example.com", withProperties: nil) { (status, error) in 
+IntemptTracker.identifyUsingBeacon("test@example.com", withProperties: nil) { (status, result, error) in 
 	if(status) {
 		//Do something
 	}
