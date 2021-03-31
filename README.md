@@ -273,14 +273,14 @@ Go to app's Info.plist file and add the privacy keys.
 ``` swift
 import Intempt
   override func viewDidLoad() {
-  		super.viewDidLoad()
-  		IntemptTracker.beacon(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token", andDeviceUUID: "Beacon device UUID") { (success, result, error) in
-  		  if(success) {
-		    //Do something
-	      } 
-        }
-        IntemptClient.shared()?.delegate = self
-}
+  	super.viewDidLoad()
+  	IntemptTracker.beacon(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token", andDeviceUUID: "Beacon device UUID") { (success, result, error) in
+  		if(success) {
+		  //Do something
+	    } 
+    }
+    IntemptClient.shared()?.delegate = self
+ }
 ```
 
 Next implement this methods:
