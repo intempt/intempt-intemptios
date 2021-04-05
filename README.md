@@ -50,10 +50,16 @@ You can test the functionality of this framework with the demo app located over 
 | Privacy - Location Always Usage Description | Location used to track where you are |
 | Privacy - Location When In Use Usage Description | Location used to track where you are |
 | Privacy - Location Always and When In Use Usage Description | Location used to track where you are |
+| Privacy - Tracking Usage Description | Tracking permission is needed to for analytics |
 
-4. You will need to [log in](https://app.intempt.com/) to Intempt App and create an iOS source.
+4.
+ You will need to [log in](https://app.intempt.com/) to Intempt App and create an iOS source.
 
-5. Copy the code snippet generated and paste it just like shown in the following, whether you are using Swift or Objective-C.
+5.
+ Copy the code snippet generated and paste it just like shown in the following, whether you are using Swift or Objective-C.
+ 
+ 6.
+ If you are using iOS 14 or later then it is recommended that you should initialze root viewcontroller programtically as described below. Otherwise tracking will not work.
 
 #### Swift:
 
@@ -61,11 +67,15 @@ If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste 
 
 ``` swift
 import Intempt
+
+var window: UIWindow?
+
 func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {  
 
        // Request to user for tracking permission
        requestTrackingPermission()
-       guard let _ = (scene as? UIWindowScene) else { return }
+       guard let scene = (scene as? UIWindowScene) else { return }
+       window = UIWindow(windowScene: scene)
    }
    
    func sceneWillEnterForeground(_ scene: UIScene) {
@@ -92,6 +102,8 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
                         
                         UserDefaults.standard.set(true, forKey: "TrackingEnabled")
                         // Now that we are authorized we can get the IDFA
+                        
+						self.decideInitialViewController()
                         self.initializeIntemptTracking()
                     case .denied:
                         // Tracking authorization dialog was
@@ -110,6 +122,7 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
             }
         }
         else {
+            decideInitialViewController()
             initializeIntemptTracking()
         }
     }
@@ -130,6 +143,14 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
             }
         }
         IntemptClient.enableLogging()
+    }
+    
+    func decideInitialViewController() {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.isNavigationBarHidden = true
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
 ```
 
