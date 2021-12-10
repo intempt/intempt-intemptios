@@ -1,10 +1,6 @@
 # Intempt iOS SDK
 
-[Intempt](https://intempt.com/?utm_campaign=sdk&utm_medium=docs&utm_source=github) is an API-first platform for developers and marketers who are dissatisfied with high-maintenance personalizaton software. Our product is a personalization infrastructure through API and easy-to-use Console that provides a quicker way to build personalized applications. Unlike legacy personalization software we have:
-
-* An API-first SaaS platform that enables personliazation of both digital and physical human activity
-* A management console that helps cut down maintenance and reporting overhead
-* An infrastructure to scale up user activity in no time
+[Intempt](https://intempt.com/?utm_campaign=sdk&utm_medium=docs&utm_source=github)  Customer Data Platform built on Open Data Stack for the needs of SAAS and eCommerce companies focusing to grow their customer LTV.
 
 This is a library to facilitate automatic tracking of anonymous and logged in traffic on your Objective-C or Swift app.
 
