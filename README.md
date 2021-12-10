@@ -1,4 +1,4 @@
-# Intempt SDK for iOS
+# Intempt iOS SDK
 
 [Intempt](https://intempt.com/?utm_campaign=sdk&utm_medium=docs&utm_source=github) is an API-first platform for developers and marketers who are dissatisfied with high-maintenance personalizaton software. Our product is a personalization infrastructure through API and easy-to-use Console that provides a quicker way to build personalized applications. Unlike legacy personalization software we have:
 
@@ -10,127 +10,123 @@ This is a library to facilitate automatic tracking of anonymous and logged in tr
 
 You can find the full API documentation on [dev.intempt.com](https://dev.intempt.com).
 
-## Contents
+# Table of contents
+1. [Requirements](#Requirements)
+2. [Getting Started](#GettingStarted)
+   1. [Integration](#Integration)
+   2. [Get Organization ID and Source ID](#OrganizationIDandSourceID)
+   3. [Events Tracking](#EventsTracking)
+   4. [Get VisitorId From Framework](#GetVisitorIdFromFramework)
+   5. [Identifying Visitors](#IdentifyingVisitors)
+   6. [Custom Event](#CustomEvent)
+   7. [Disable TextCapture](#DisableTextCapture)
+   8. [Disable Default Event Tracking](#DisableDefaultEventTracking)
+   9. [Enable Default Event Tracking](#EnableDefaultEventTracking)
+   10. [Enable Event Logging](#EnableEventLogging)
+   11. [Disable Event Logging](#DisableEventLogging)
+   12. [Reset Tracking Session](#ResetTrackingSession)
+   13. [End Tracking Session](#EndTrackingSession)
+   14. [Start Tracking Session](#StartTrackingSession)
+   15. [iOS14&Later and ATTTransportSecurity](#iOS14)
+   16. [Privacy Location](#Privacy)
+3. [Troubleshooting](#Troubleshooting)
+   1. [Building for iOS, but the linked and embedded framework 'Intempt.framework' was built for iOS + iOS Simulator.](#Universalframework)
+   2. [Unsupported Architectures](#unsupportedarchitectures)
+   3. [dyld: Library not loaded](#dyldLibrarynotloaded)
+   4. [Intempt no such module found](#nosuchmodulefound)
+   5. [No data visible on app.intempt.com](#nodatafound)
 
-* [1](https://github.com/intempt/intempt-intempt-ios-sdk#download) - Download [SDK](https://dev.intempt.com/#customization-for-web)
-* [2](https://github.com/intempt/intempt-ios-sdk#requirements) - Check [requirements](https://dev.intempt.com/#customization-for-web)
-* [3](https://github.com/intempt/intempt-ios-sdk#install) - Install [SDK](https://dev.intempt.com/#customization-for-web)
-* [4](https://github.com/intempt/intempt-ios-sdk#swift) - Swift [guide](https://dev.intempt.com/#customization-for-web)
-* [5](https://github.com/intempt/intempt-ios-sdk#objective-c) - Objective-C [guide](https://dev.intempt.com/#customization-for-web)
-* [6](https://github.com/intempt/intempt-ios-sdk#identifying-visitors) - How to [identify](https://dev.intempt.com/#customization-for-web) a user 
-* [7](https://github.com/intempt/intempt-ios-sdk#custom-event) - How to record a [custom event](https://dev.intempt.com/#customization-for-web)
-* [8](https://github.com/intempt/intempt-ios-sdk#tracking-revenue-with-trackcharge) - How to [track](https://dev.intempt.com/#customization-for-web) revenue 
-* [9](https://github.com/intempt/intempt-ios-sdk#events-collections-and-properties) - Custom [Events, Collections & Properties](https://dev.intempt.com/#events-collections-and-properties)
-* [10](https://github.com/intempt/intempt-ios-sdk#ios-events) - Event [primer](https://dev.intempt.com/#customization-for-web)
-* [11](https://github.com/intempt/intempt-ios-sdk#event-properties) - Properties [primer](https://dev.intempt.com/#properties)
-* [12](https://github.com/intempt/intempt-ios-sdk#demo-ios-app) - iOS [demo app](https://dev.intempt.com/#properties)
 
-### Download
+## Requirements <a name="Requirements"></a>
+- iOS 12.0+
+- Minimum Xcode 10.0
 
-Download the `Intempt.framework` available in this repo.
 
-#### Demo
-You can test the functionality of this framework with the demo app located over [here](https://github.com/intempt/intempt-ios-demo).
+## Getting Started <a name="GettingStarted"></a>
 
-### Requirements
+### Integration: <a name="Integration"></a>
+1. At first download sdk from https://github.com/intempt/ios-sdk.git). Then open the folder frameworks. There are three sdks in  this folder **'device' 'simulator'** and **'universal'**. 
+<img width="573" alt="1" src="https://user-images.githubusercontent.com/93919087/144225604-a6e8ca7e-9d0f-4210-ac21-c0d2bd8ac06f.png">
 
-- Minimum iOS 12.0+
-- Minimum Xcode 10.0+
+- **Simulator** will run only on simulators
+- **Device** will run only on devices
+- **Universal** will run on both simulators and devices, but for that there are two extra things need to do during integration. Given integration steps are for universal so please follow all steps inorder to run without any error.
 
-### Installation
+2. Open **universal** folder and first copy `Intempt.Framework` into your project directory and then Drag & Drop `Intempt.Framework` in your iOS app.
+<img width="1417" alt="2" src="https://user-images.githubusercontent.com/93919087/144225626-73c69b69-cc2f-4f91-8b46-e7d832871460.png">
+<img width="1244" alt="3" src="https://user-images.githubusercontent.com/93919087/144225684-83c33889-52e1-4f0f-adbb-1806cbb55d44.png">
 
-1. Drag & drop the `Intempt.framework` into your iOS project, underneath your project's folder and **NOT** in the `Frameworks` folder (if exits).
+3. `Intempt.framework` must set to `Embed & Sign`, Select your project `Traget -> Build Phase` expand `Embed Framework` and press `+` add `Intempt.framework`
 
-2. Select Project --> General --> Frameworks, Libraries, and Embedded Content and the newly installed `Intempt.framework` must set to `Embed & Sign`. If you didn't download it, please go and download it from [here](https://github.com/intempt/intempt-ios-sdk#download).
+<img width="1384" alt="adding Intempt into Build Phase" src="https://user-images.githubusercontent.com/93919087/144842029-09e9454d-3990-4265-9086-2d8bd2b3fc97.png">
 
-3. Next go to the app's `Info.plist` file and add the following privacy keys.
+<img width="1378" alt="Screenshot 2021-12-03 at 12 04 13 PM" src="https://user-images.githubusercontent.com/93919087/144560810-03b1c091-2060-448f-a257-8e7fb0ae6527.png">
 
-| Key | Value |
-| ------ | ------ |
-| Privacy - Location Always Usage Description | Location used to track where you are |
-| Privacy - Location When In Use Usage Description | Location used to track where you are |
-| Privacy - Location Always and When In Use Usage Description | Location used to track where you are |
-| Privacy - Tracking Usage Description | Tracking permission is needed to for analytics |
+make sure in `Target ->General->Framework, Libraries and Embded Contents` `Embed & Sign` is selected.
 
-4.
- You will need to [log in](https://app.intempt.com/) to Intempt App and create an iOS source.
+<img width="1243" alt="4" src="https://user-images.githubusercontent.com/93919087/144225710-c4b4c9d0-a24f-4fc6-97ae-c82834185d27.png">
 
-5.
- Copy the code snippet generated and paste it just like shown in the following, whether you are using Swift or Objective-C.
- 
- 6.
- If you are using iOS 14 or later then it is recommended that you should initialze root viewcontroller programtically as described below. Otherwise tracking will not work.
+4. Select your project `Target -> Build Settings` and search `Validate Workspace` Set Value to NO, if its already NO, then set to YES once and then set again to NO. This is workaround as sometimes xcode doesn't understand, so toggeling the value between YES/NO it worked.
 
-#### Swift:
+<img width="1389" alt="Validate Workspace" src="https://user-images.githubusercontent.com/93919087/144861179-642d1a07-948a-4e12-ab21-ae84df9fb92c.png">
 
-If you are using Xcode 11.3 or above go to `SceneDelegate.swift` file and paste the copied source snippet into the `scene` function:
+
+5. If you have added `intempt.framework` as `universal` then when submitting to app store Apple will show error of simulator architectures. To resolve this issue please select your project `Target -> Build Phase` and select `+` sign and add `New Run Script Phase`. It will add an empty runscript below, expand it and put the below script as shown in below screen shot.
+
+```run script
+# skip if we run in debug
+if [ "$CONFIGURATION" == "Debug" ]; then
+echo "Skip frameworks cleaning in debug version"
+exit 0
+fi
+
+APP_PATH="${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/"
+
+# This script loops through the frameworks embedded in the application and
+# removes unused architectures.
+find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
+do
+FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
+FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
+echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"
+
+EXTRACTED_ARCHS=()
+
+for ARCH in $ARCHS
+do
+echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"
+lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"
+EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")
+done
+
+echo "Merging extracted architectures: ${ARCHS}"
+lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "${EXTRACTED_ARCHS[@]}"
+rm "${EXTRACTED_ARCHS[@]}"
+
+echo "Replacing original executable with thinned version"
+rm "$FRAMEWORK_EXECUTABLE_PATH"
+mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
+
+done
+```
+<img width="1198" alt="10" src="https://user-images.githubusercontent.com/93919087/144419018-82fb85a5-6e4a-402e-90f2-c6bda30039d5.png">
+
+If you have followed the above 5 steps then you will be able to compile without any error.
+
+### Swift :
+If Xcode 11.3 or above
+
+Goto AppDelegate.swift file
 
 ``` swift
 import Intempt
-
-var window: UIWindow?
-
-func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {  
-
-       // Request to user for tracking permission
-       requestTrackingPermission()
-       guard let scene = (scene as? UIWindowScene) else { return }
-       window = UIWindow(windowScene: scene)
-   }
-   
-   func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        if let enabled = UserDefaults.standard.value(forKey: "TrackingEnabled") as? Bool, enabled == false {
-            if #available(iOS 14, *) {
-                if ATTrackingManager.trackingAuthorizationStatus == .authorized {
-                    requestTrackingPermission()
-                }
-            }
-        }
-    }
-   
-   private func requestTrackingPermission() {
-        if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization { status in
-                switch status {
-                    case .authorized:
-                        // Tracking authorization dialog was shown
-                        // and we are authorized
-                        print("Tracking authorized.")
-                        
-                        UserDefaults.standard.set(true, forKey: "TrackingEnabled")
-                        // Now that we are authorized we can get the IDFA
-                        
-						self.decideInitialViewController()
-                        self.initializeIntemptTracking()
-                    case .denied:
-                        // Tracking authorization dialog was
-                        // shown and permission is denied
-                        print("Denied. Please turn on app tracking to enable app analytics.")
-                        UserDefaults.standard.set(false, forKey: "TrackingEnabled")
-                    case .notDetermined:
-                        // Tracking authorization dialog has not been shown
-                        print("Not determined.")
-                    case .restricted:
-                        print("Restricted. Please turn on app tracking to enable app analytics.")
-                        UserDefaults.standard.set(false, forKey: "TrackingEnabled")
-                    @unknown default:
-                        print("Unknown.")
-                }
-            }
-        }
-        else {
-            decideInitialViewController()
-            initializeIntemptTracking()
-        }
-    }
-   
-   private func initializeIntemptTracking() {
+        ///Your code here
+        
         //Initialize Intempt SDK
-        let intemptConfig = IntemptConfig(queueEnabled: true, withItemsInQueue: 0, withTimeBuffer: 7, withInitialDelay: 0.3, withInputTextCaptureDisabled: true)
-        IntemptTracker.tracking(withOrgId: "Your Organization ID", withSourceId: "Your Source ID", withToken: "Your Token", withConfig: intemptConfig) { (status, result, error) in
+        let intemptConfig = IntemptConfig(queueEnabled: true, withItemsInQueue: 7, withTimeBuffer: 15, withInitialDelay: 0.3, withInputTextCaptureDisabled: false)
+        IntemptTracker.tracking(withOrgId: "Your Organization Id", withSourceId: "Your Source ID", withToken: "Your Token", withConfig: intemptConfig) { (status, result, error) in
             if(status) {
                 if let dictResult = result as? [String: Any] {
                     print(dictResult)
@@ -142,48 +138,120 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
                 }
             }
         }
-        IntemptClient.enableLogging()
-    }
-    
-    func decideInitialViewController() {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.isNavigationBarHidden = true
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+        
+        return true
     }
 ```
-
-Else you will have the `ViewController.m` file and then paste the copied source snippet into the `viewDidLoad` function:
+Else you will have the `ViewController.swift` file and then paste the copied source snippet into the `viewDidLoad` function: 
 
 ``` swift
 import Intempt
   override func viewDidLoad() {
         super.viewDidLoad()
-        IntemptTracker.tracking(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token")
+      
+	 //Initialize Intempt SDK
+        let intemptConfig = IntemptConfig(queueEnabled: true, withItemsInQueue: 7, withTimeBuffer: 15, withInitialDelay: 0.3, withInputTextCaptureDisabled: false)
+        IntemptTracker.tracking(withOrgId: "Your Organization Id", withSourceId: "Your Source ID", withToken: "Your Token", withConfig: intemptConfig) { (status, result, error) in
+            if(status) {
+                if let dictResult = result as? [String: Any] {
+                    print(dictResult)
+                }
+            }
+            else {
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+}
+```
+### Objective C :
+
+If you are using Xcode 11.3 or above go to `AppDelegate.m` file and paste the copied source snippet like the following:
+
+``` objectivec
+@import Intempt;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Your code here
+    
+    //initalize intempt SDK
+    IntemptConfig *intemptConfig  = [[IntemptConfig alloc]initWithQueueEnabled:YES withItemsInQueue:7 withTimeBuffer:15 withInitialDelay:0.3 withInputTextCaptureDisabled:NO];
+    [IntemptTracker trackingWithOrgId:@"Your Organization Id" withSourceId:@"Your Source ID" withToken:@"Your Token" withConfig:intemptConfig onCompletion:^(BOOL status, id result, NSError *error) {
+        
+    }];
+    
+    return YES;
 }
 ```
 
-### Get VisitorId From Framework
+Else you will have the `ViewController.m` file and then paste the copied source snippet like the following:
+
+``` objectivec
+@import Intempt
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+     //initalize intempt SDK
+    IntemptConfig *intemptConfig  = [[IntemptConfig alloc]initWithQueueEnabled:YES withItemsInQueue:7 withTimeBuffer:15 withInitialDelay:0.3 withInputTextCaptureDisabled:NO];
+    [IntemptTracker trackingWithOrgId:@"Your Organization Id" withSourceId:@"Your Source ID" withToken:@"Your Token" withConfig:intemptConfig onCompletion:^(BOOL status, id result, NSError *error) {
+        
+    }];
+}
+```
+### Get Organization ID and Source ID <a name="OrganizationIDandSourceID"></a>
+To get your organization Id and source Id you need to create your account on https://app.intempt.com/ and then go to https://app.intempt.com/sources/ 
+- 1 Create Organization
+- 2 Create Source
+- 3 Copy Source ID, Organization Id and Token in your Xcode app for IntemptSDK initialization. 
+
+<img width="1389" alt="Source Creation" src="https://user-images.githubusercontent.com/93919087/144863636-d986410c-b87a-4ba0-b33a-d68b2c934d4c.png">
+
+
+### Events Tracking <a name="EventsTracking"></a>
+
+IntemptSDK track different type events, some of these are default and some are custom, default events are automatically started tracking when SDK is initialized and for custom events developer have to write code whereever required. Below types events are in IntemptSDK
+- Application Launch Tracking (Default, automatically tracked)
+- Screen Tracking (Default, automatically tracked)
+- Interaction Tracking (Default, automatically tracked)
+- Consent (Default, automatically tracked)
+- Location (Depending on application, if user of the app has allowed location permission then country, city level location is tracked)
+- Identity (Manual, Developer have to implement it)
+- Custom (Developer have to create schema and implement in app)
+
+#### Get VisitorId From Framework <a name="GetVisitorIdFromFramework"></a>
 
 ``` swift
 let visitorId = IntemptClient.shared()?.getVisitorId()
 ```
-
-### Identifying Visitors
+#### Identifying Visitors <a name="IdentifyingVisitors"></a>
 Provide email or phone number.
 
 ``` swift
-IntemptTracker.identify("test@example.com", withProperties: nil) { (status, result, error) in 
+IntemptTracker.identify("test@example.com", withProperties: nil) { (status, error) in 
 	if(status) {
 		//Do something
 	}
 }
 ```
+#### Custom Event <a name="CustomEvent"></a>
+On using this a user can create a custom event based on the need of the project and can track the event details with that custom method.
+To add custom event below should be flow
 
-### Custom Event
+- 1 Visit the Intempt Console https://app.intempt.com/sources/
+- 2 Select Organization -> Source -> Schema
+- 3 Drag 'Add collection' from the right panel(Schema Builder) to the exisiting collections list
+- 5 Drag the 'Add field' to the added collection, add as many fields as required.
+- 6 Set field type carefully e.g if the data from app is string and field type set in int then there will be error.
+- 7 If you want to link the events with the visitor session then add 'sessionId' as foreign key of 'Session' collection into that collection
 
-When using this you can create a custom event based on the needs of the project and that will help you keep track of event details with that custom method.
+Every custom event schema must have `timestamp of type long` and `eventId of type string` fields, otherwise your custom event will not be saved and you will get bad request error.
+
+**Please becarefull when renaming, Collection and Field name 
+always start with small letter**
+
+
+<img width="1391" alt="flight-Booking Collection" src="https://user-images.githubusercontent.com/93919087/144866546-27b62a61-ef6f-4830-a879-080448c9c077.png">
+
 
 ```swift 
 let arrayData = [{       
@@ -192,138 +260,169 @@ let arrayData = [{
                 "bookingId": "2",
                 "bookingStatus" : "booked"
               }]
-             
-IntemptTracker.track("Online Hotel Booking", withProperties: arrHotelBooking as? [Any]) { (status, result, error) in
-	if(status) {
-		//Do something
-	}
-}
+        IntemptTracker.track("flight-booking", withProperties: arrayData as? [Any]) { (status, result, error) in
+            if(status) {
+                if let dictResult = result as? [String: Any] {
+                    print(dictResult)
+                }
+            }
+            else {
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+}             
+```
+Schema of above example 'flight-booking' looks like below screenshot
+
+<img width="1424" alt="demo collection" src="https://user-images.githubusercontent.com/93919087/144867290-490923a9-f383-49fd-adb3-08f3e9e996d4.png">
+
+
+
+#### Disable Text Capture <a name="DisableTextCapture"></a>
+Call this method if you want to disable capturing input texts like UItextField, UItextView. By default its `false`. Secure entries are also excluded for privacy.
+
+```swift 
+IntemptTracker.disableTextInput(true)
 ```
 
-### Tracking Revenue with `trackcharge`
+#### Disable Default Event Tracking <a name="DisableDefaultEventTracking"></a>
+Call this method if you want to disable default tracking. This action is persistent, once disabled then developer must need to enable again when want to track default events again.
 
-Notice the key `intempt.visit.trackcharge` in the sample code above. If you use this key in the event details, the value will be recorded as revenue in the Intempt app. This allows you to assess the revenue impact of campaigns.
+```swift 
+IntemptClient.disableTracking()
+```
 
-Collections do not need to be predefined in the Intempt app. As soon as the tracker logs an event with a new collection name, that collection of events will be available in the app.
+#### Enable Default Event Tracking <a name="EnableDefaultEventTracking"></a>
+Call this method if you had disabled tracking and want to enable again.
 
-### Events, Collections, and Properties
+```swift 
+IntemptClient.enableTracking()
+```
 
-An event is a discrete interaction that occurs on your site. Events are organized by type into collections. Events have properties, key-value pairs that record relevant information about the event.
+#### Enable Event Logging <a name="EnableEventLogging"></a>
+Call this method if you want to see the logs of all generated events, errors for debug purposes. By default logging is disabled
 
-For example, a user clicks on UIButton
+```swift 
+IntemptClient.enableLogging()
+```
+#### Disable Event Logging <a name="DisableEventLogging"></a>
+Call this method if you want not see any output in console.
 
-1. It belongs to the interactions collection. (The interaction type is "Action".)
+```swift 
+IntemptClient.disableLogging()
+```
 
-2. The properties including in this event like time of click, other attributes of related elements during the event action and the  action event belongs to which View Controller etc all will be automatically tracked once this tracker code SDK is added in the existing application.
+#### Reset Tracking Session <a name="ResetTrackingSession"></a>
+Call this method in order to reset tracking session. It will end previous session and start new session.
 
-### iOS Events
+```swift 
+IntemptClient.shared().validateTrackingSession()
+```
+#### End Tracking Session <a name="EndTrackingSession"></a>
+Call this method in order to end tracking session.
 
-Events as recorded by the tracker code are conceptually somewhat different than events as defined in the Intempt app.
-On the iOS side, events will soon be renamed to actions.
+```swift 
+IntemptClient.shared().endTrackingSession()
+```
+#### Start Tracking Session <a name="StartTrackingSession"></a>
+Call this method in order to start a new tracking session.
 
-Event collections are organized in a tree structure.
+```swift 
+IntemptClient.shared().startTrackingSession()
+```
 
-Profile
-Launch
-Scene
-Identify
-Interaction
-Custom
+## Tracking iOS14 & later and ATTTransportSecurity framework <a name="iOS14"></a>
+Intempt itself does not get IDFA and doesn't track user by default. Data is not forwarded to any external services, and is not linked with any third-party data. Also events captured are not linked to user indentity and not used for user tracking purpose. Analytic are captured to observe the user behavior, viuslations of app usage and improving user experience based on user activities in the app. So with the default configuration there is no need for adding Apple Tracking Transparency permission in info.plist and asking user consent. Also don't include Apple Tracking Transparency framework in your app. However if your app has other external integrations or you have implemented custom events which track user or share user data with other then you have to include it.
 
-Because of this hierarchy, any event can be filtered or accessed based on the properties associated with something further up the tree.
-
-For example, if you wanted to find all button clicks associated with a particular visit, you can do that.
-
-Custom events logged manually using the Rest API appear with whatever collection name was assigned, under the custom collection.
-
-### Event Properties
-
-Events have properties, key-value pairs the record information about the event.
-
-Properties are grouped into two collections:
-
-fixed — Properties that are (relatively) stable, related to the profile,launch or the scene. This includes things like device name,osVersion,app name and geolocaiton etc.
-
-timeseries — Properties that are specific to a particular interaction. This includes element-specific details, time stamps, and anything recorded as part of custom events.
-
-When logging a custom event, you can pass in any existing property key names, as well as define your own.
-
-
-### Demo iOS App
-
-1. Add the framework to the application and once it launches, it will show the a permission pop-up to allow sharing your location. You will have to click on "Allow While Using App". 
-
-2. This enables the keys to track your location details.
-
-3. In the following demo application, after running it will display a Login Screen. After clicking the login button it loads up Intempt's IdentifyVisitor function.
-
-4. On every touch event the tracker will fetch event details.
-
-5. After clicking on the payment button, and successfully going on with a purchase, the purchase custom event will be triggered in the application.
-
-## Intempt Proximity
-
-Install an Intempt beacon At your preferable place.Add this SDK in your existing application. Thus it will help you to know about your entry and exit range.
-This sdk supports any kind of beacon that allows you to change the UUID in the vendors Beacon Manager. The UUID is a unique broadcasting number which allows Intempt to know which types of beacons to look for. You can think of it like tuning to a radio station.
-
-Today, Intempt’s mobile SDK looks for ONE UUID by default. Use any of them with your existing beacons to enable them with Intempt.
-
-### Key Components
-
-Intempt Proximity SDK is built on top of two key components:
-
-- Entry - when you are enter a region.
-
-- Exit - when you are exit a region.
-
+## Privacy - Location Permission <a name="Privacy"></a>
+IntemptSDK itself doesn't ask user for the location permission and doesn't fetch user location. However IntemptSDK has refence to CoreLocations framework and if the app(where IntemptSDK integrated) already have obtained user consent for Location then IntemptSDK track user location of city, region, country level. As the IntemptSDK has reference to CoreLocations framework so it is required to add `Privacy - Location` in info.plist with explaining the purpose of location fetch and usage.
 
 Go to app's Info.plist file and add the privacy keys.
 
-
 | Key | Value |
 | ------ | ------ |
-| Privacy - Location Always Usage Description | Location used to track where you are |
-| Privacy - Location When In Use Usage Description | Location used to track where you are |
-| Privacy - Location Always and When In Use Usage Description | Location used to track where you are |
-| Privacy - Bluetooth Always Usage Description | This app uses Bluetooth communication to detect nearby beacons |
-| Privacy - Bluetooth Peripheral Usage Description | This app uses Bluetooth communication to detect nearby beacons |
+| Privacy - Location Always Usage Description | Location used to track where you are and showing most relevant content to you.|
+| Privacy - Location When In Use Usage Description | Location used to track where you are and showing most relevant content to you |
+| Privacy - Location Always and When In Use Usage Description | Location used to track where you are and showing most relevant content to you |
 
 
-#### Swift:
+## Troubleshooting <a name="Troubleshooting"></a>
+### Building for iOS, but the linked and embedded framework 'Intempt.framework' was built for iOS + iOS Simulator. <a name="Universalframework"></a>
+If you have used intempt universal framework then you may face this error. To resolve this please follow below steps.
 
-``` swift
-import Intempt
-  override func viewDidLoad() {
-  	super.viewDidLoad()
-  	IntemptTracker.beacon(withOrgId: "Your Organization ID", andSourceId: "Your Source ID", andToken: "Your Token", andDeviceUUID: "Beacon device UUID") { (success, result, error) in
-  		if(success) {
-		  //Do something
-	    } 
-    }
-    IntemptClient.shared()?.delegate = self
- }
+Select your project `Target -> Build Settings` and search `Validate Workspace` Set Value to NO, if its already NO, then set to YES once and then set again to NO. This is workaround as sometimes xcode doesn't understand, so toggeling the value between YES/NO it worked.
+
+<img width="1389" alt="Validate Workspace" src="https://user-images.githubusercontent.com/93919087/144868225-3b68ab16-baa2-43bd-bfe0-d15f91b74401.png">
+
+
+### Appstore uploading issue of invalid unsupported architectures. <a name="unsupportedarchitectures"></a>
+
+If you have added `intempt.framework` as `universal` then when submitting to app store Apple will show error of simulator architectures. To resolve this issue please select your project `Target -> Build Phase` and select `+` sign and add `New Run Script Phase`. It will add an empty runscript below, expand it and put the below script as shown in below screen shot.
+
+```run script
+# skip if we run in debug
+if [ "$CONFIGURATION" == "Debug" ]; then
+echo "Skip frameworks cleaning in debug version"
+exit 0
+fi
+
+APP_PATH="${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/"
+
+# This script loops through the frameworks embedded in the application and
+# removes unused architectures.
+find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
+do
+FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
+FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
+echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"
+
+EXTRACTED_ARCHS=()
+
+for ARCH in $ARCHS
+do
+echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"
+lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"
+EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")
+done
+
+echo "Merging extracted architectures: ${ARCHS}"
+lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "${EXTRACTED_ARCHS[@]}"
+rm "${EXTRACTED_ARCHS[@]}"
+
+echo "Replacing original executable with thinned version"
+rm "$FRAMEWORK_EXECUTABLE_PATH"
+mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
+
+done
 ```
+<img width="1198" alt="10" src="https://user-images.githubusercontent.com/93919087/144419018-82fb85a5-6e4a-402e-90f2-c6bda30039d5.png">
 
-Next implement this methods:
+### dyld: Library not loaded: @rpath/Intempt.framework/Intempt  <a name="dyldLibrarynotloaded"></a>
 
-``` swift
-/*Helps to detect the entry time , when application entered the monitoring region*/
-func  didEnterRegion(_ beaconData: CLBeacon!) {
-}
+`Intempt.framework` must set to `Embed & Sign`
 
-/*Helps to detect the exit time , when application exits the monitoring region*/
-func  didExitRegion(_ beaconData: CLBeacon!) {
-}
-```
+<img width="1243" alt="4" src="https://user-images.githubusercontent.com/93919087/144225710-c4b4c9d0-a24f-4fc6-97ae-c82834185d27.png">
 
-#### Identifying Visitors (Optional)
-Provide email or phone number.
+### Intempt no such module found <a name="nosuchmodulefound"></a>
 
-``` swift
-IntemptTracker.identifyUsingBeacon("test@example.com", withProperties: nil) { (status, result, error) in 
-	if(status) {
-		//Do something
-	}
-}
-```
-Use this method when you want to identify using beacon API separately.  
+Sometimes xcode behaves strange and not link properly, so first delete `Intempt.framework` from your project, `clean build` and delete `Drived Data`
+then again follow belwo steps to add framework
+
+Open **universal** folder and first copy `Intempt.Framework` into your project directory and then Drag & Drop `Intempt.Framework` in your iOS app.
+<img width="1417" alt="2" src="https://user-images.githubusercontent.com/93919087/144225626-73c69b69-cc2f-4f91-8b46-e7d832871460.png">
+<img width="1244" alt="3" src="https://user-images.githubusercontent.com/93919087/144225684-83c33889-52e1-4f0f-adbb-1806cbb55d44.png">
+
+`Intempt.framework` must set to `Embed & Sign`, Select your project `Traget -> Build Phase` expand `Embed Framework` and press `+` add `Intempt.framework`
+
+<img width="1384" alt="adding Intempt into Build Phase" src="https://user-images.githubusercontent.com/93919087/144842029-09e9454d-3990-4265-9086-2d8bd2b3fc97.png">
+<img width="1378" alt="Screenshot 2021-12-03 at 12 04 13 PM" src="https://user-images.githubusercontent.com/93919087/144560810-03b1c091-2060-448f-a257-8e7fb0ae6527.png">
+
+make sure in `Target ->General->Framework, Libraries and Embded Contents` `Embed & Sign` is selected.
+
+<img width="1243" alt="4" src="https://user-images.githubusercontent.com/93919087/144225710-c4b4c9d0-a24f-4fc6-97ae-c82834185d27.png">
+
+### No data visible on app.intempt.com console dashboard <a name="nodatafound"></a>
+
+For performance and efficiency purpose IntemptSDK send events as batch periodically, it may take few seconds to appear your events on console.
