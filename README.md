@@ -6,17 +6,18 @@
    3. [Events Tracking](#EventsTracking)
    4. [Get VisitorId From Framework](#GetVisitorIdFromFramework)
    5. [Identifying Visitors](#IdentifyingVisitors)
-   6. [Custom Event](#CustomEvent)
-   7. [Disable TextCapture](#DisableTextCapture)
-   8. [Disable Default Event Tracking](#DisableDefaultEventTracking)
-   9. [Enable Default Event Tracking](#EnableDefaultEventTracking)
-   10. [Enable Event Logging](#EnableEventLogging)
-   11. [Disable Event Logging](#DisableEventLogging)
-   12. [Reset Tracking Session](#ResetTrackingSession)
-   13. [End Tracking Session](#EndTrackingSession)
-   14. [Start Tracking Session](#StartTrackingSession)
-   15. [iOS14&Later and ATTTransportSecurity](#iOS14)
-   16. [Privacy Location](#Privacy)
+   6. [Consent](#Consent)
+   7. [Custom Event](#CustomEvent)
+   8. [Disable TextCapture](#DisableTextCapture)
+   9. [Disable Default Event Tracking](#DisableDefaultEventTracking)
+   10. [Enable Default Event Tracking](#EnableDefaultEventTracking)
+   11. [Enable Event Logging](#EnableEventLogging)
+   12. [Disable Event Logging](#DisableEventLogging)
+   13. [Reset Tracking Session](#ResetTrackingSession)
+   14. [End Tracking Session](#EndTrackingSession)
+   15. [Start Tracking Session](#StartTrackingSession)
+   16. [iOS14&Later and ATTTransportSecurity](#iOS14)
+   17. [Privacy Location](#Privacy)
 3. [Troubleshooting](#Troubleshooting)
    1. [Building for iOS, but the linked and embedded framework 'Intempt.framework' was built for iOS + iOS Simulator.](#Universalframework)
    2. [Unsupported Architectures](#unsupportedarchitectures)
@@ -94,7 +95,7 @@ import Intempt
   override func viewDidLoad() {
         super.viewDidLoad()
       
-	 //Initialize Intempt SDK
+     //Initialize Intempt SDK
         let intemptConfig = IntemptConfig(queueEnabled: true, withItemsInQueue: 7, withTimeBuffer: 15, withInitialDelay: 0.3, withInputTextCaptureDisabled: false)
         IntemptTracker.tracking(withOrgId: "Your Organization Id", withProjectId: "Your Project Id", withSourceId: "Your Source ID", withToken: "Your Token", withConfig: intemptConfig) { (status, result, error) in
             if(status) {
@@ -177,12 +178,24 @@ let visitorId = IntemptClient.shared()?.getVisitorId()
 Provide email or phone number.
 
 ``` swift
-IntemptTracker.identify("test@example.com", withProperties: nil) { (status, error) in 
-	if(status) {
-		//Do something
-	}
+IntemptTracker.identify("test@example.com", withProperties: nil) { (status, result, error) in 
+    if(status) {
+        //Do something
+    }
 }
 ```
+
+#### Consent <a name="Consent"></a>
+You can record your app consent with builtin event.
+
+``` swift
+IntemptTracker.consent("Marketing", withProperties: "Yes, email me offers, style updates and special invites to sales and events.") { (status, result, error) in 
+    if(status) {
+        //Do something
+    }
+}
+```
+
 #### Custom Event <a name="CustomEvent"></a>
 On using this a user can create a custom event based on the need of the project and can track the event details with that custom method.
 To add custom event below should be flow
@@ -383,4 +396,5 @@ For performance and efficiency purpose IntemptSDK send events as batch periodica
 if you see your events are captured and shown in log in debug mode but sent too late on intempt server, then in such case you need to check two below things in your intemptSDK initalization.
 - `TimeBuffer' its value is in seconds, if sdk send data to server periodically based on value of this parameter
 - `ItemsInQueue` its value is number of events, if you set value to 10, IntemptSDK will wait untill 10 or more events are captured then it sends
+
 
