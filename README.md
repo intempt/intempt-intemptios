@@ -18,7 +18,8 @@
    15. [Start Tracking Session](#StartTrackingSession)
    16. [iOS14&Later and ATTTransportSecurity](#iOS14)
    17. [Privacy Location](#Privacy)
-3. [Troubleshooting](#Troubleshooting)
+3. [Going Live](#GoingLive)
+4. [Troubleshooting](#Troubleshooting)
    1. [Building for iOS, but the linked and embedded framework 'Intempt.framework' was built for iOS + iOS Simulator.](#Universalframework)
    2. [Unsupported Architectures](#unsupportedarchitectures)
    3. [dyld: Library not loaded](#dyldLibrarynotloaded)
@@ -189,7 +190,7 @@ IntemptTracker.identify("test@example.com", withProperties: nil) { (status, resu
 You can record your app consent with builtin event.
 
 ``` swift
-IntemptTracker.consent("Marketing", withProperties: "Yes, email me offers, style updates and special invites to sales and events.") { (status, result, error) in 
+IntemptTracker.consent("GDPR", withProperties: "Marketing", consented:true) { (status, result, error) in 
     if(status) {
         //Do something
     }
@@ -312,6 +313,9 @@ Go to app's Info.plist file and add the privacy keys.
 | Privacy - Location Always and When In Use Usage Description | Location used to track where you are and showing most relevant content to you |
 
 
+## Going Live <a name="GoingLive"></a>
+Once your integration is complete with the staging/sandbox environment then before uploading app to Apple store, just replace Intemptt staging framework with the production framework.
+
 ## Troubleshooting <a name="Troubleshooting"></a>
 ### Building for iOS, but the linked and embedded framework 'Intempt.xcframework' was built for iOS + iOS Simulator. <a name="Universalframework"></a>
 If you have used intempt universal framework then you may face this error. To resolve this please follow below steps.
@@ -396,5 +400,6 @@ For performance and efficiency purpose IntemptSDK send events as batch periodica
 if you see your events are captured and shown in log in debug mode but sent too late on intempt server, then in such case you need to check two below things in your intemptSDK initalization.
 - `TimeBuffer' its value is in seconds, if sdk send data to server periodically based on value of this parameter
 - `ItemsInQueue` its value is number of events, if you set value to 10, IntemptSDK will wait untill 10 or more events are captured then it sends
+
 
 
