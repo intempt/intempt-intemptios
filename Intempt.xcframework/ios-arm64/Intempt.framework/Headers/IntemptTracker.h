@@ -19,12 +19,13 @@ typedef void(^CompletionHandler)(BOOL status, id result, NSError *error);
 /**
  Call this method from ScenseDelegate's `scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions)` or AppDelegate's  `application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)` for your app to start tracker during launch. Alternatively you can call this method at any ViewController's  `viewDidLoad` method. Wherever you call it will initilaze & track the whole app.
  @param orgId  Your Intempt Organization ID generated from intempt developer console
+ @param projectId  Your Intempt Project ID generated from intempt developer console
  @param sourceId Your Intempt Source ID generated from intempt developer console
  @param token Your Intempt Source Token generated from intempt developer console
  @param settings A configuration object specifying settings like queueEnabled, timeBuffer, retryLimit, initialDelay, retryDelay, isInputTextCaptureEnabled. For more details please look into `IntemptConfig` class.
  @note iOS 13 above should implement it on ScenseDelegate
 */
-+ (void)trackingWithOrgId:(NSString*)orgId withSourceId:(NSString*)sourceId withToken:(NSString*)token withConfig:(id)settings onCompletion:(CompletionHandler)handler;
++ (void)trackingWithOrgId:(NSString*)orgId withProjectId:(NSString*)projectId withSourceId:(NSString*)sourceId withToken:(NSString*)token withConfig:(id)settings onCompletion:(CompletionHandler)handler;
 
 /**
  Use this method when you want to set a unique identifier (email or phone no.) for your app.
@@ -33,6 +34,15 @@ typedef void(^CompletionHandler)(BOOL status, id result, NSError *error);
  @note In Swift you can pass Error object instead of NSError as error
 */
 + (void)identify:(NSString*)identity withProperties:(NSDictionary*)userProperties onCompletion:(CompletionHandler)handler;
+
+/**
+ Use this method when you want to log consent event for your app.
+ @param regulation  Marketing
+ @param purpose A purpose i.e, allow to send emial and promotions
+ @param consented true or false
+*/
++ (void)consent:(NSString*)regulation withProperties:(NSString*)purpose consented:(BOOL)consented onCompletion:(CompletionHandler)handler;
+
 
 /**
  Use this method when you specific tracking information to server. Creating custom Schema is mandatory to use this method. Go to your project on https://app.intempt.com and select organization and then select source and click on `Visit Schema` to add custom Schema
