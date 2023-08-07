@@ -10,6 +10,7 @@
 @import CoreLocation;
 
 #import <Intempt/IntemptConfig.h>
+#import "IntemptConsentConfig.h"
 
 typedef void(^CompletionHandler)(BOOL status, id result, NSError *error);
 
@@ -126,11 +127,9 @@ Use this Instance method when you want to set a unique identifier (email or phon
 
 /**
  Use this method when you want to log consent event for your app.
- @param regulation  Marketing
- @param purpose A purpose i.e, allow to send emial and promotions
- @param consented true or false
+ @param config  IntemptConsentConfig
 */
-- (void)consent:(NSString*)regulation withProperties:(NSString *)purpose consented:(BOOL)consented withCompletion:(CompletionHandler)handler;
+- (void)consent:(IntemptConsentConfig*)config withCompletion:(CompletionHandler)handler;
 
 /**
 Use this Instance method when you specific tracking information to server. Creating custom Schema is mandatory to use this method. Go to your project on https://app.intempt.com and click on `Visit Schema` to add custom Schema
@@ -166,6 +165,12 @@ Get Intempt Visitor ID
 @return visitior ID
 */
 - (NSString *)getVisitorId;
+
+/**
+Get SessionId
+@return SessionId
+*/
+- (NSString *)getSessionId;
 
 /**
  Get Intempt SDK Version

@@ -18,5 +18,5 @@ FOUNDATION_EXPORT const unsigned char intemptVersionString[];
 #import <Intempt/IntemptTracker.h>
 #import <Intempt/IntemptClient.h>
 #import <Intempt/IntemptConfig.h>
-
-
+#import <Intempt/IntemptConsentConfig.h>
+#import <Intempt/IntemptExperiments.h>

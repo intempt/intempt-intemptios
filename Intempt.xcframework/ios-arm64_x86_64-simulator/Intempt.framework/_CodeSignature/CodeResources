@@ -6,23 +6,31 @@
 	<dict>
 		<key>Headers/Intempt.h</key>
 		<data>
-		SnHQf8MS1MUUVl0vMgil/V3DDzU=
+		iYsmUXsogWB0ztwucyI72l4yt4o=
 		</data>
 		<key>Headers/IntemptClient.h</key>
 		<data>
-		wHxnuYDo4Fc/ZQP+PmTNZfmZRt8=
+		CZJ7r0vpdyTaKuUGXYRxYMXksnI=
 		</data>
 		<key>Headers/IntemptConfig.h</key>
 		<data>
 		KUk0SWt/Z7ItwTYptBq4oxkde/M=
 		</data>
+		<key>Headers/IntemptConsentConfig.h</key>
+		<data>
+		n2ZGyKpZCc6x/t+sqIuIpbxOic0=
+		</data>
+		<key>Headers/IntemptExperiments.h</key>
+		<data>
+		XW16sbmBTjdoru04mjrHGFE0ZYU=
+		</data>
 		<key>Headers/IntemptTracker.h</key>
 		<data>
-		TOditm2aSkmrneAaz1IaJL8acl4=
+		UT+8LaKsBtqCBk3wn8d21lQrdTo=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		DJLFRecbpwTUAQ/XVuRgkVeukdI=
+		2dZYGLb8H8jBCXGxFbP83S+oaFk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -39,14 +47,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+xq20orrDGauQ4gSriirPVMCQAnieFhdjxQcR2MhBqE=
+			Ip4HuJ8Ow+n/vzoPCUzJ6HIyPWz9Gu0gqfLS1JRBKNk=
 			</data>
 		</dict>
 		<key>Headers/IntemptClient.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dEjW7s25gPukMi6iMVUj9cwvnwwhV3LEbnBIyiV8wD4=
+			DO9G69zWJlguIIO1mjUv+1DseSIvf95iuTTbYzU2ftE=
 			</data>
 		</dict>
 		<key>Headers/IntemptConfig.h</key>
@@ -56,11 +64,25 @@
 			mrXUV6npD9/qVj44c2NoHjTmRxfBhFnDcOlVnxM0fGI=
 			</data>
 		</dict>
+		<key>Headers/IntemptConsentConfig.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zUOEGwICxSvjDhQJCr+8dkzdtbDtvPpEGhVUXUA0BnA=
+			</data>
+		</dict>
+		<key>Headers/IntemptExperiments.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IXP6xxRFiHRk7hfwOsoDq0qNfCRightr9ki3de4Uajg=
+			</data>
+		</dict>
 		<key>Headers/IntemptTracker.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IOC+eOS5UEgnAYQpxJGK0pgDMXkuX6IOfJhqPrQ23yc=
+			s0XtntIVp++8AvtkuH3BsgdqHnvQZ4QwwGOdzXqBWSg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
