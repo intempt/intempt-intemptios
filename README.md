@@ -341,9 +341,9 @@ Go to app's Info.plist file and add the privacy keys.
 | Privacy - Location Always and When In Use Usage Description | Location used to track where you are and showing most relevant content to you |
 
 ## Experiments <a name="Experiments"></a>
-An Experiment is essentially just changes.
+An Experiment is essentially just changes. With the A/B Testing so you can run experiments to test ideas and see the impact they have on key metrics. Want to see if your new checkout screen is actually driving more purchases? Want to try out a new ad format to see if it increases revenue? Use Experiments with A/B Testing to get insight into which changes are helping you achieve your goals.
 
-### How to use a Client-side <a name="Client-side"></a>
+### How to use a Server-side <a name="Server-side"></a>
 Required:
 
 1: a key from API keys menu; example 36e82934fff945278268971cd3b4d32e.8911b9bc1e3f469a863a7e047cd51fdc
@@ -354,31 +354,54 @@ Required:
 
 4: add our sdk
 
+Before you go for coding, you need to setup your experiment with the variants. It can be done with experiment builder https://help.intempt.com/docs/experiment-builder. E.g if you want to experiment different profiles for different users, You can add variants as simple key value pair each. 
+
+<img width="1200" alt="variants" src="https://github.com/niazi619/intemptSDK/assets/93919087/47e38a46-fed3-45b7-b50b-b4ad4fa48b13">
+<img width="1107" alt="variant-profile" src="https://github.com/niazi619/intemptSDK/assets/93919087/d54917b1-b224-4970-94a1-f85667a61a92">
 
 ### Instantiate the experiments API
+First of all instantiate the experiments SDK. 
 ```swift 
 let experiment = IntemptExperiments.sharedClient()
 experiment?.initWithOrgId(<YOUR_INTEMPT_ORG_ID>, withProjectId: <YOUR_INTEMPT_PROJECT_ID>, withSourceId: <YOUR_INTEMPT_SOURCE_ID>, withToken: IntemptOptions.token, onCompletion: { status, result, error in
 
 })
 ```
-### Make the call
+### Choose variant with the user identifier
+Pass a user identifier (email, phone, any unique value which you has set as identity) to below method. It will return the response in the completion handler. 'result' is the key value dictionary which can be wraped to NSDictioary or as? [String:Any].
+
 ```swift 
 let experiment = IntemptExperiments.sharedClient()
 experiment?.chooseVariant(withUserIdentifier: <User Identifier>, experimentId: <Experiment ID>, device: "MOBILE", uri: "", onCompletion: { status, result, error in
 
 })
+```
+Based on experiment setup, above method will return result or error. E.g in example of profile case below will be response. In the application/game set profie based on the resutl.
+``` 
+{
+  "profile_shape": "circle"
+}
+```
 
+### Choose variant with the profile identifier
+Pass a profile identifier (email, phone, any unique value which you has set as identity) to below method. It will return the response in the completion handler. 'result' is the key value dictionary which can be wraped to NSDictioary or as? [String:Any].
+
+```swift 
+let experiment = IntemptExperiments.sharedClient()
 experiment?.chooseVariant(withProfileIdentifier: IntemptClient.shared().getVisitorId(), experimentId: <Experiment ID>,device: nil, uri: nil, onCompletion: { status, result, error in
   
 })
-
-experiment?.chooseClientExperimentVariant(withUserIdentifier: IntemptClient.shared().getVisitorId(), device: "MOBILE", uri: "", onCompletion: { status, result, error in
-
-})
 ```
-if error is nill `result` will be `NSDictionary` key values JSON
-NOTE: It is necessary to set user identity before calling experiements. It can be done like this 
+Based on experiment setup, above method will return result or error. E.g in example of profile case below will be response. In the application/game set profie based on the resutl.
+``` 
+{
+  "profile_shape": "round"
+}
+```
+
+if error code is 204, it means no variant available; Possible reasons: 1. the user is not in the target audiance 2. not yet active, out of schedule 
+
+NOTE: It is necessary to set user identity before calling experiements. It can be done like this. If you are going to set identity and call experiement method simultaneously, then first identitty should be set and in completion handler experiment method call should be made. Its because if you call experiment before the identity, experiment will return 204 error code.
 
 ``` swift
 IntemptTracker.identify("test@example.com", withProperties: nil) { (status, result, error) in 
