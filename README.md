@@ -24,7 +24,7 @@
 
 ![63886e0c9f008888f009f36b_Logo (4)](https://github.com/intempt/intempt-intemptios/assets/64703923/f046172b-f51c-4da0-84e4-5dd3eb4a4d83)
 
-# Intempt iOS SDK
+# About this SKD
 
 This iOS SDK lets you track events and serve personalizations/experiments on your app using Intempt APIs.
 
@@ -41,3 +41,7 @@ SDK features:
 Refer to the SDK documentation for full setup:
 [iOS SDK](https://help.intempt.com/docs/ios-sdk)
 
+# About Intempt
+
+Intempt is a GrowthOS -  a unified marketing workspace where you turn audiences into revenue with AI predictions, real-time analytics, segmentation, journey automation, web personalization, and A/B testing.
+Check out more at [intempt.com](https://www.intempt.com)
