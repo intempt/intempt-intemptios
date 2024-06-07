@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "testsp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/waseemwanologicalsolutions/TestSP",
+      "state" : {
+        "branch" : "main",
+        "revision" : "4aa07045dc9da04cc716545dc14f78d529105eba"
+      }
+    }
+  ],
+  "version" : 2
+}
