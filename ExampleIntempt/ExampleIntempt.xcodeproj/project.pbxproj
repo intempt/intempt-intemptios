@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA1DFDB92C13430400E7DA99 /* IntemptSP in Frameworks */ = {isa = PBXBuildFile; productRef = FA1DFDB82C13430400E7DA99 /* IntemptSP */; };
+		1A1D269E2C135AAC007EAB1A /* Intempt in Frameworks */ = {isa = PBXBuildFile; productRef = 1A1D269D2C135AAC007EAB1A /* Intempt */; };
 		FAC411CB2C132E4F00826A7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC411CA2C132E4F00826A7E /* AppDelegate.swift */; };
 		FAC411CD2C132E4F00826A7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC411CC2C132E4F00826A7E /* SceneDelegate.swift */; };
 		FAC411CF2C132E4F00826A7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC411CE2C132E4F00826A7E /* ViewController.swift */; };
@@ -32,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1DFDB92C13430400E7DA99 /* IntemptSP in Frameworks */,
+				1A1D269E2C135AAC007EAB1A /* Intempt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 			);
 			name = ExampleIntempt;
 			packageProductDependencies = (
-				FA1DFDB82C13430400E7DA99 /* IntemptSP */,
+				1A1D269D2C135AAC007EAB1A /* Intempt */,
 			);
 			productName = ExampleIntempt;
 			productReference = FAC411C72C132E4F00826A7E /* ExampleIntempt.app */;
@@ -117,7 +117,7 @@
 			);
 			mainGroup = FAC411BE2C132E4F00826A7E;
 			packageReferences = (
-				FA1DFDB72C13430400E7DA99 /* XCRemoteSwiftPackageReference "TestSP" */,
+				1A1D269C2C135AAC007EAB1A /* XCRemoteSwiftPackageReference "intempt-intemptios" */,
 			);
 			productRefGroup = FAC411C82C132E4F00826A7E /* Products */;
 			projectDirPath = "";
@@ -375,21 +375,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA1DFDB72C13430400E7DA99 /* XCRemoteSwiftPackageReference "TestSP" */ = {
+		1A1D269C2C135AAC007EAB1A /* XCRemoteSwiftPackageReference "intempt-intemptios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/waseemwanologicalsolutions/TestSP";
+			repositoryURL = "https://github.com/intempt/intempt-intemptios/";
 			requirement = {
-				branch = main;
+				branch = "package-manager-setup";
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA1DFDB82C13430400E7DA99 /* IntemptSP */ = {
+		1A1D269D2C135AAC007EAB1A /* Intempt */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA1DFDB72C13430400E7DA99 /* XCRemoteSwiftPackageReference "TestSP" */;
-			productName = IntemptSP;
+			package = 1A1D269C2C135AAC007EAB1A /* XCRemoteSwiftPackageReference "intempt-intemptios" */;
+			productName = Intempt;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
