@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 //@property (nonatomic,assign, readonly) NSTimeInterval retryDelay;
 
-/**If you want to disable capturing input texts like UItextField, UItextView. Secure entries are excluded for privacy. Set `NO` to disable. Default is `YES`.
+/**If you want to disable capturing input texts like UItextField, UItextView. Secure entries are excluded for privacy. Set `YES` to disable. Default is `NO`.
  */
 @property (nonatomic,assign, readonly) BOOL isInputTextCaptureDisabled;
 
