@@ -6,39 +6,27 @@
 	<dict>
 		<key>Headers/Intempt.h</key>
 		<data>
-		iYsmUXsogWB0ztwucyI72l4yt4o=
-		</data>
-		<key>Headers/IntemptClient.h</key>
-		<data>
-		CZJ7r0vpdyTaKuUGXYRxYMXksnI=
+		ZTqlt+jgeM73Hyg2JariUwaGb2k=
 		</data>
 		<key>Headers/IntemptConfig.h</key>
 		<data>
 		KUk0SWt/Z7ItwTYptBq4oxkde/M=
 		</data>
-		<key>Headers/IntemptConsentConfig.h</key>
-		<data>
-		n2ZGyKpZCc6x/t+sqIuIpbxOic0=
-		</data>
-		<key>Headers/IntemptExperiments.h</key>
-		<data>
-		XW16sbmBTjdoru04mjrHGFE0ZYU=
-		</data>
 		<key>Headers/IntemptTracker.h</key>
 		<data>
-		UT+8LaKsBtqCBk3wn8d21lQrdTo=
+		iRW+jG5Jq01kTt1oXMWwKAGtQdE=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		2dZYGLb8H8jBCXGxFbP83S+oaFk=
+		KBvTEOO3nVRMcrf5Es5yHdSVlZI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		DGvDCWIS8IFWIKuE93WlG34ep14=
+		e+3r8xmd1xwD1BBt0n5kq6ztIpk=
 		</data>
-		<key>Universal Framework creation script.strings</key>
+		<key>PrivacyInfo.xcprivacy</key>
 		<data>
-		zmV6UqBSo6r1NOz798vd5O4zTBA=
+		KDfoBIL/m4+NQvFvBQp1Rucx3Bg=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -47,14 +35,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ip4HuJ8Ow+n/vzoPCUzJ6HIyPWz9Gu0gqfLS1JRBKNk=
-			</data>
-		</dict>
-		<key>Headers/IntemptClient.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			DO9G69zWJlguIIO1mjUv+1DseSIvf95iuTTbYzU2ftE=
+			R+hIP1T9sguOvZwr1AzvZmDsEVXihUKGpkLDVNb+0IQ=
 			</data>
 		</dict>
 		<key>Headers/IntemptConfig.h</key>
@@ -64,39 +45,25 @@
 			mrXUV6npD9/qVj44c2NoHjTmRxfBhFnDcOlVnxM0fGI=
 			</data>
 		</dict>
-		<key>Headers/IntemptConsentConfig.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			zUOEGwICxSvjDhQJCr+8dkzdtbDtvPpEGhVUXUA0BnA=
-			</data>
-		</dict>
-		<key>Headers/IntemptExperiments.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			IXP6xxRFiHRk7hfwOsoDq0qNfCRightr9ki3de4Uajg=
-			</data>
-		</dict>
 		<key>Headers/IntemptTracker.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			s0XtntIVp++8AvtkuH3BsgdqHnvQZ4QwwGOdzXqBWSg=
+			AM1qK1XjXAC6JW1onqvzYx5oRnB0Twd62cszbK7GyYI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h9oeL4kBDLO3Ah2cnnSyH1GmmDtd25KWRh7afvhEs0M=
+			pLM+9WaNKiT/8uzRwTtpXS+aLCMgNJvW+XiTheFi/u8=
 			</data>
 		</dict>
-		<key>Universal Framework creation script.strings</key>
+		<key>PrivacyInfo.xcprivacy</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kmHsztpgjvF0JW5f3HdMHm49z1M0CcG8OT1JDQHHE/E=
+			SH8Jf4JOt/8u/xQDuZjFJmUrXVYntCx28e+5+bwvgDY=
 			</data>
 		</dict>
 	</dict>

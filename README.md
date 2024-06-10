@@ -38,6 +38,16 @@ SDK features:
 - Start/end sessions
 - Adjust event batches
 
+# Installation
+## Swift Package Manager
+​
+Open your .xcodeproj, select the option "Add Package..." in the File menu, and paste the URL for the library you want to integrate
+https://github.com/intempt/intempt-intemptios
+
+<img width="1104" alt="Screenshot 2024-06-07 at 8 08 26 PM" src="https://github.com/intempt/intempt-intemptios/assets/9913534/d0b376de-03be-4530-ab8e-a99e76714412">
+
+
+
 # Documentation
 Refer to the SDK documentation for full setup:
 [iOS SDK](https://help.intempt.com/docs/ios-sdk)

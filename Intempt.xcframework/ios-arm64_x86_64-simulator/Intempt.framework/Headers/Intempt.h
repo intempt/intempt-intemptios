@@ -16,7 +16,5 @@ FOUNDATION_EXPORT const unsigned char intemptVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <intempt/PublicHeader.h>
 #import <Intempt/IntemptTracker.h>
-#import <Intempt/IntemptClient.h>
 #import <Intempt/IntemptConfig.h>
-#import <Intempt/IntemptConsentConfig.h>
-#import <Intempt/IntemptExperiments.h>
+
