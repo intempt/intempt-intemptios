@@ -3,10 +3,10 @@
     {
       "identity" : "intempt-intemptios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/intempt/intempt-intemptios/",
+      "location" : "https://github.com/intempt/intempt-intemptios",
       "state" : {
-        "branch" : "package-manager-setup",
-        "revision" : "d933ae824df513de5235fb556d5644f7af1f662e"
+        "branch" : "master",
+        "revision" : "b4e605a22c55965a264c1dac49e3edba46c10ad9"
       }
     }
   ],
