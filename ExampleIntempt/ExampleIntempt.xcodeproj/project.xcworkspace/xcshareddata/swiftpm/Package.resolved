@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "intempt-intemptios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/intempt/intempt-intemptios",
+      "state" : {
+        "branch" : "master",
+        "revision" : "b4e605a22c55965a264c1dac49e3edba46c10ad9"
+      }
+    }
+  ],
+  "version" : 2
+}
