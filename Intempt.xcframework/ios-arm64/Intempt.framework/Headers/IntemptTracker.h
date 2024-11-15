@@ -244,7 +244,16 @@ Use this Instance method when you want to add a specific event
 */
 + (void)choosePersonalizationsByGroups:(NSArray*)groups withCompletion:(CompletionHandler)handler;
 
++ (void)productAdd:(NSString *)productId
+                       quantity:(NSNumber * _Nullable)quantity
+                    onCompletion:(CompletionHandler)handler;
 
+// Declare the method for recording an ordered product list
++ (void)productOrdered:(NSArray<NSDictionary *> *)params onCompletion:(CompletionHandler)handler;
+
+// Declare the method for viewing a product
++ (void)productView:(NSString *)productId
+                      onCompletion:(CompletionHandler)handler;
 @end
 
 #endif
