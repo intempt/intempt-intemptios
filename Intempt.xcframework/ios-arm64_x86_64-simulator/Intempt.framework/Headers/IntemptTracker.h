@@ -252,6 +252,7 @@ Use this Instance method when you want to add a specific event
 // Declare the method for recording an ordered product list
 + (void)productOrdered:(NSArray<NSDictionary *> *)params onCompletion:(CompletionHandler)handler;
 
+
 // Declare the method for viewing a product
 + (void)productView:(NSString *)productId
                       onCompletion:(CompletionHandler)handler;
