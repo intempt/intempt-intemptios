@@ -255,6 +255,5 @@ Use this Instance method when you want to add a specific event
 + (void)productView:(NSString *)productId
                       onCompletion:(CompletionHandler)handler;
 @end
-
 #endif
 
