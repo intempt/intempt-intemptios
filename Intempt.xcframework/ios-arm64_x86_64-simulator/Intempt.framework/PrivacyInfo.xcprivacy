@@ -9,7 +9,7 @@
 			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
 			<key>NSPrivacyAccessedAPITypeReasons</key>
 			<array>
-				<string>CA92.1: Access info from same app, save and retrieve different ids &amp; flags which needs by the for different features</string>
+				<string>CA92.1</string>
 			</array>
 		</dict>
 	</array>
