@@ -256,6 +256,7 @@ Use this Instance method when you want to add a specific event
                       onCompletion:(CompletionHandler)handler;
 
 - (void)recommendation:(NSString*)feedId fields:(NSArray<NSString *> *)fields quantity:(NSNumber*)quantity productId:(NSString* _Nullable)productId onCompletion:(CompletionHandler)handler;
++ (void)recommendation:(NSString*)feedId fields:(NSArray<NSString *> *)fields quantity:(NSNumber*)quantity productId:(NSString* _Nullable)productId onCompletion:(CompletionHandler)handler;
 @end
 
 #endif
