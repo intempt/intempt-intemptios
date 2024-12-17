@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Intempt",
+    name: "Intempt 2",
     platforms: [
             .iOS(.v13)
         ],
