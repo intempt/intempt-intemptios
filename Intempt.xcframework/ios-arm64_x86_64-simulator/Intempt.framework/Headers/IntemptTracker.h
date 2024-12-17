@@ -257,6 +257,5 @@ Use this Instance method when you want to add a specific event
                       onCompletion:(CompletionHandler)handler;
 
 @end
-
 #endif
 
