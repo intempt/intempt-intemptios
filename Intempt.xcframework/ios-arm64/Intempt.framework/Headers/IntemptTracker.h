@@ -224,25 +224,25 @@ Use this Instance method when you want to add a specific event
 Use this Instance method when you want to add a specific event
 @param names  array of experiments name
 */
-+ (void)chooseExperimentsByNames:(NSArray*)names withCompletion:(CompletionHandler)handler;
++ (void)chooseExperimentsByNames:(NSArray*)names productId:(NSString*)productId withCompletion:(CompletionHandler)handler;
 
 /**
 Use this Instance method when you want to add a specific event
 @param groups  array of experiments name
 */
-+ (void)chooseExperimentsByGroups:(NSArray*)groups withCompletion:(CompletionHandler)handler;
++ (void)chooseExperimentsByGroups:(NSArray*)groups productId:(NSString*)productId withCompletion:(CompletionHandler)handler;
 
 /**
 Use this Instance method when you want to add a specific event
 @param names  array of experiences name
 */
-+ (void)choosePersonalizationsByNames:(NSArray*)names withCompletion:(CompletionHandler)handler;
++ (void)choosePersonalizationsByNames:(NSArray*)names productId:(NSString*)productId withCompletion:(CompletionHandler)handler;
 
 /**
 Use this Instance method when you want to add a specific event
 @param groups  array of experiences name
 */
-+ (void)choosePersonalizationsByGroups:(NSArray*)groups withCompletion:(CompletionHandler)handler;
++ (void)choosePersonalizationsByGroups:(NSArray*)groups productId:(NSString*)productId withCompletion:(CompletionHandler)handler;
 
 + (void)productAdd:(NSString *)productId
                        quantity:(NSNumber * _Nullable)quantity
